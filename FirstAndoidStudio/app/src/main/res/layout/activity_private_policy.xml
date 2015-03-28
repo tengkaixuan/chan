@@ -1,0 +1,29 @@
+<!--<pre class="height-set:true width-set:true lang:xhtml decode:true crayon-selected">-->
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <RelativeLayout
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".PrivatePolicy" >
+
+    <TextView
+        android:id="@+id/Data"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:text="@string/HtmlData" />
+<!--
+    <TextView
+        android:id="@+id/dynamicHTML"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/Data"
+        android:layout_below="@+id/Data"
+        android:layout_marginTop="16dp"
+        android:text="TextView" />
+        -->
+</RelativeLayout>
+    </ScrollView>

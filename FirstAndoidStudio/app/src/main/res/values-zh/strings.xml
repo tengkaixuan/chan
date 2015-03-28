@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">戒戒</string>
+    <string name="tab_everyday">今日</string>
+    <string name="tab_everymonth">本月</string>
+    <string name="tab_monitor">家人圈</string>
+    <string name="tab_setting">设置</string>
+    <string name="menu_settings">Settings</string>
+    <string name="title_contacts">联系人</string>
+    <string name="hello_world">Hello World!</string>
+    <string name="icon_description">jiejie</string>
+    <string name="data_app">jiecon</string>
+    <string name="findContact">find person…</string>
+    <string name="family_bind_hint">请绑定您的手机号码</string>
+    <string name="family_bind_phone">手机号:</string>
+    <string name="family_bind_validate">验证码:</string>
+
+    <string name="family_bind_validate_refresh">重新获取</string>
+    <string name="family_bind_validate_get">获取验证码</string>
+    <string name="family_bind_button_ok">绑定</string>
+    <string name="family_bind_passed">绑定成功!</string>
+    <string name="family_bind_failed">绑定失败!</string>
+    <string name="family_bind_no_friends">你的朋友圈还没有人哦!</string>
+    <string name="family_bind_add">添加</string>
+    <string name="contacts_add_as_friend">加为好友</string>
+    <string name="family_bind_invite">邀请</string>
+    <string name="family_bind_added">已添加</string>
+    <string name="family_bind_empty_contact_list">你的手机还没有联系人噢!</string>
+    <string name="family_detail">查看</string>
+    <string name="family_cancel">取消</string>
+    <string name="family_parent">家长</string>
+    <string name="family_kid">小孩</string>
+    <string name="family_friend">朋友</string>
+    <string name="family_bind_dialog_monitor_title">提示</string>
+    <string name="family_bind_phone_title">绑定手机</string>
+    <string name="family_bind_phone_hint">请输入手机号码</string>
+    <string name="family_phone_null">手机号码不能为空</string>
+    <string name="family_bind_dialog_no_sim_card">不能检测到你的手机号码！</string>
+    <string name="family_bind_dialog_monitor_add_exist">此号码已经存在</string>
+    <string name="family_bind_dialog_monitor_add_success">添加成功</string>
+    <string name="family_bind_dialog_monitor_warning">你的好友还没有加入戒戒，暂时还不能监管！</string>
+    <string name="family_please_check_family_tab_message">(请查看家人圈)</string>
+
+    <string name="title_activity_test">test</string>
+    <string name="action_settings">设定</string>
+    <string name="register_nickname">昵称</string>
+    <string name="register_nickname_sample">王宝强</string>
+    <string name="register_china_code">+86</string>
+    <string name="register_hint_phone_number">手机号</string>
+    <string name="OK">确定</string>
+    <string name="Reply">回复</string>
+    <string name="YES">是</string>
+    <string name="NO">否</string>
+    <string name="AGREE">同意</string>
+    <string name="DISAGREE">拒绝</string>
+    <string name="WAITMONMENT">稍后</string>
+    <string name="CANCEL">取消</string>
+
+    <string name="title_activity_main_activity2">获取Activities</string>
+    <string name="YEAR">年</string>
+    <string name="MONTH">月</string>
+    <string name="DAY">日</string>
+    <string name="HOUR">时</string>
+    <string name="MIN">分</string>
+    <string name="MIN2">分钟</string>
+    <string name="SEC">秒</string>
+    <string name="COUNT">次</string>
+    <string name="phone_occupied_time">手机使用时间:</string>
+    <string name="phone_call_time">手机通话时间:</string>
+    <string name="phone_switchon_count">开屏次数:   </string>
+    <string name="phone_threshold_time">预设时间:   </string>
+    <string name="congratulations">完成预设目标 恭喜！</string>
+    <string name="credit">成就: </string>
+    <string name="supervision_warn">你的好友还没有加入戒戒!</string>
+    <string name="control_supervision_text">允许使用时间上限</string>
+    <string name="control_supervision_btn_text">设定</string>
+    <string name="title_activity_supervision_setting">SupervisionSetting</string>
+    <string name="supervision_time_setting_warn">时间不能为空噢</string>
+    <string name="supervision_setting_ok">监管请求成功,等待对方同意!</string>
+    <string name="supervision_setting_fail">监管请求失败，请检查网络!</string>
+    <string name="settings_time_period_lable1">自我设定(小时)</string>
+    <string name="control_supervision_mins_lable">允许使用时间上限(分钟)</string>
+    <string name="supervision_my_supervisor_label">我的监管者</string>
+    <string name="supervision_supervised_label">我被谁监管</string>
+    <string name="supervision_exceed_day_limit_label">超出当日设定锁屏</string>
+    <string name="supervision_exceed_limit_notification">超出当日设定提前通知</string>
+    <string name="login_account_update">帐号设定</string>
+    <string name="status_10">请求监管</string>
+    <string name="status_10_label">正在申请监管</string>
+    <string name="status_10_label_father">监管请求中</string>
+    <string name="status_11">同意监管</string>
+    <string name="status_11_label">同意监管</string>
+    <string name="status_11_label_fail">同意监管失败,请检查网络!</string>
+    <string name="status_12">拒绝监管</string>
+    <string name="status_12_label">拒绝监管</string>
+    <string name="status_20">请求解除监管</string>
+    <string name="status_20_label">请求解除监管</string>
+    <string name="status_20_label_ok">解除监管申请成功发出</string>
+    <string name="status_20_label_fail">解除监管申请失败,请检查网络!</string>
+    <string name="status_21">同意解除</string>
+    <string name="status_21_label_agree">同意解除监管</string>
+    <string name="status_21_label">解除监管</string>
+    <string name="status_21_label_fail">解除监管失败,请检查网络!</string>
+    <string name="status_22">拒绝解除</string>
+    <string name="status_22_label">拒绝解除监管</string>
+    <string name="status_30">请求解除锁屏</string>
+    <string name="status_30_label">请求解锁</string>
+    <string name="status_30_label_ok">请求解锁申请成功发出！</string>
+    <string name="status_30_label_fail">请求解除锁屏申请失败,请检查网络!</string>
+    <string name="status_31_1">同意解锁</string>
+    <string name="status_31_2">被直接锁屏</string>
+    <string name="status_31_3">被解锁</string>
+    <string name="status_31_label">同意解除锁屏</string>
+    <string name="status_31_label_fail">同意解除锁屏失败,请检查网络!</string>
+    <string name="status_32">拒绝解锁</string>
+    <string name="status_32_label">拒绝解锁</string>
+    <string name="status_msg">附加消息(%1$s)</string>
+    <string name="status_msg_no">附加消息(无)</string>
+    <string name="lock_screen_warning">您今天手机总使用时间(%1$d分钟)\n将超出设定的监视时间(%2$d分钟)，戒戒将于%3$d分钟后锁屏，请及时向%4$s请求解锁！明日将自动解锁。</string>
+    <string name="lock_screen_warning_me">您今天手机总使用时间(%1$d分钟)\n将超出设定的监视时间(%2$d分钟)。请注意休息！</string>
+    <string name="lock_screen_warning_me_lock">您今天手机总使用时间(%1$d分钟)\n将超出设定的监视时间(%2$d分钟)。\n戒戒将于%3$d分钟后锁屏。明日将自动解锁。</string>
+    <string name="service_is_stop">请启动监视服务，戒戒将于%1$d分钟后锁屏。</string>
+    <string name="status_supervision">监管中</string>
+    <string name="status_supervision_no">未监管</string>
+    <string name="status_supervision_yes">监管</string>
+    <string name="status_supervision_son">被监管中</string>
+    <string name="status_friend_label">猛戳监管他</string>
+    <string name="status_supervision_free_label">监管中</string>
+    <string name="status_supervised">监管我</string>
+    <string name="action_supervise">请求监管</string>
+    <string name="action_cancel_supervision">解除监管</string>
+    <string name="action_unlock">解除锁屏</string>
+    <string name="action_lock">立即锁屏</string>
+
+    <string name="title_activity_supervision_details">家人状态信息</string>
+    <string name="title_activity_mock_lock">MockLockActivity</string>
+    <string name="str_password">密码</string>
+    <string name="EnterPassword">输入密码</string>
+    <string name="title_activity_signup">SignupActivity</string>
+    <string name="monitor_daily">查看今日数据</string>
+    <string name="day_app_percent">各应用所占时间比</string>
+    <string name="day_bar_discript">前10应用使用统计数据</string>
+    <string name="day_pie_center">前10个App所占\n时间百分比</string>
+    <string name="day_pie_descript">哆比出品</string>
+
+    <string name="setting_change_phone">更换手机号码(当前:  %s )</string>
+    <string name="setting_binding_phone">绑定手机号：</string>
+    <string name="setting_cancel">Cancel</string>
+    <string name="setting_ok">OK</string>
+    <string name="setting_nickname_input">请输入昵称：</string>
+    <string name="setting_nickname_hint">提示</string>
+    <string name="setting_nickname_modify_success">更改成功！</string>
+    <string name="setting_nickname_modify_failed">更改失败！</string>
+    <string name="setting_nickname_label">更改昵称(当前: %s )</string>
+    <string name="setting_start_monitor">辅助功能(当前:已启动)</string>
+    <string name="setting_stop_monitor">辅助功能(当前:已停止)</string>
+    <string name="xformathh">时</string>
+    <string name="xformatmm">分</string>
+    <string name="buddy_day_title"> 未安装戒戒,没有统计数据</string>
+    <string name="buddy_day_showdate"> 统计时间-%s</string>
+    <string name="bind_phone_number">电话号码</string>
+    <string name="bind_phone_hint">输入手机号码，好让家人找到你</string>
+    <string name="bind_phone_hint_bottom">请在这输入手机号码</string>
+    <string name="bind_phone_next">提交</string>
+    <string name="bind_phone_cancel">取消</string>
+    <string name="family_no_monitor">你想申请解除监管吗？</string>
+    <string name="family_apply_unlock">向 %s 申请解除锁定吗？</string>
+    <string name="family_stop_monitor">您要停止监管吗?</string>
+    <string name="family_apply_stop_unlock">把 %s 解锁掉吗？</string>
+    <string name="family_lock_who">您要锁住 %s 吗?</string>
+    <string name="family_lock_success">调用锁屏接口成功</string>
+    <string name="family_apply_monitor">%s 想监管你,你同意吗？</string>
+    <string name="family_apply_no_monitor">%s 正在申请解除监管</string>
+    <string name="family_apply_unlock_who">%s 正在申请解除锁定</string>
+    <string name="family_add_buddy">"添加到家人圈？"</string>
+    <string name="time_limited">"时间上限:   "</string>
+    <string name="locked_msg">今天使用时间超过了设定，被锁住了,可以按返回退出此界面!</string>
+    <string name="family_lock_failed">无法锁屏</string>
+    <string name="HtmlData">
+        <h1><font size="18">用户协议</font></h1> \n
+        <font size="12">Dobi Technology Co.,Ltd. is committed to keeping any and all personal information collected of those individuals that visit our website and make use of our online facilities, apps and related services (the "Service") accurate, confidential, secure and private. Our privacy policy has been designed and created to ensure those affiliated with Dobi Technology Co.,Ltd. of our commitment and realization of our obligation not only to meet but to exceed most existing privacy standards.
+
+THEREFORE, this Privacy Policy Agreement shall apply to Dobi Technology Co.,Ltd., and thus it shall govern any and all data collection and usage thereof. Through the use of www.ignorenomoreapp.com you are herein consenting to the following data procedures expressed within this agreement.</font>  \n\n
+        <b>信息采集</b> \n\n
+
+        <b><small>您执行的操作和提供的信息。</small></b>\n
+        <font size="12">我们收集您在使用我们的服务时提供的内容和其他信息，包括在注册帐户、创建或分享消息，以及与他人发消息或交流时提供的信息。其中包括您所提供的内容信息或关于您的信息，例如照片的位置信息或文件的创建日期。我们还收集有关您如何使用我们服务的信息，例如您查看或参与的内容类型或此类活动的频率及持续时间</font>\n
+
+        <b><small>其他人执行的操作和提供的信息。</small></b>\n
+        <font size="12">我们还收集其他人在使用我们的服务时提供的内容和信息，其中包括关于您的信息，例如，当他们分享您的照片、发信息给您，或上传、同步或导入您的联系信息时提供的信息。</font>\n
+
+        <b><small>您的人际网络和关系网络。</small></b>\n
+        <font size="12">我们收集有关您的联系人和您所加入小组的信息，以及您与他们的互动程度信息，例如与您交流最多的个人或您喜欢分享的小组。我们还收集您从设备上传、同步或导入的联系信息（例如通讯录）。</font>\n
+
+        <b><small>设备信息。</small></b>\n
+        <font size="12">我们还将根据您授予的权限，从您安装或访问我们服务的电脑、手机或其他设备收集信息或收集与这些设备相关的信息。对于从您的各种设备上收集到的信息，我们可能会将它们进行关联，以便我们在这些设备上为您提供一致的服务。以下是一些我们收集的设备信息示例：</font>\n
+        <small><li>属性，例如操作系统、硬件版本、设备设置、文件和软件名称及类型、电池和信号强度和设备标识符。</li></small>\n
+        <small><li>装置位置，包括特定的地理位置，例如通过 GPS、蓝牙或 WiFi 信号获得的位置信息。</li></small>\n
+        <small><li>连接信息，例如您的移动运营商或 ISP 名称、浏览器类型、语言和时区、手机号码和 IP 地址。</li></small>\n
+
+        \n\n<b>我们如何使用这些信息？</b> \n\n
+        <font size="12">我们热衷于为用户创建有吸引力的和量身定制的体验。我们利用所获得的一切信息来帮助我们提供服务以及服务支持。具体操作：</font>\n\n
+        <b><small>提供、完善和开发服务。</small></b>\n
+        <font size="12">利用这些信息，我们能够了解您如何使用我们的服务并与之互动，以及您如何在使用和未使用 Facebook 服务期间与已建立联系和感兴趣的人与事物互动，从而使我们能够为您提供服务、个性化内容以及建议。 </font>\n\n
+        <font size="12">我们还利用这些信息为您提供捷径和建议。</font>\n\n
+        <font size="12">获得位置信息后，我们会使用这些信息为您和其他人量身定制服务，例如，帮助您签到并找到您所在区域的本地活动或优惠，或告诉好友您在附近。 </font>\n\n
+        <font size="12">我们会进行调查和研究、测试开发中的功能并分析我们拥有的信息，以便评估和改进产品和服务、开发新的产品或功能以及开展审计和故障排除活动。</font>\n\n
+        <b><small>提升安全保障。</small></b>\n
+        <font size="12">我们使用所拥有的信息来帮助验证帐户和活动，提升您在使用和未使用 Dobi 服务期间的安全保障，例如调查可疑的活动或违反我们条款和政策的行为。我们通过设立工程师团队、采用自动化系统以及诸如加密和机器学习等先进技术来竭力保障您的帐户安全。我们还提供易于使用的安全工具，为您的帐户添加额外的安全保障。</font>
+
+        \n\n<b>我们如何应对法律要求或预防伤害？</b>\n\n
+        <font size="12">如果有充分的理由相信法律要求我们这样做，那么应法律要求（如搜查令、庭谕或传票），我们可能访问、保留和分享您的信息。这可能包括来自美国以外司法管辖区的法律要求，只要我们确信回应系经该司法管辖区法律要求、影响该司法管辖区内的用户并符合国际认可的标准。我们也会访问、保存并分享信息，只要我们有充分的理由相信有必要：对欺诈和其它非法行为进行侦查、预防和应对，以保护我们自己、您以及其他人（作为调查的一部分）；以防止死亡或严重人身伤害。例如，我们可能向第三方合作伙伴提供有关您的帐户可靠性的信息，以防你在使用和未使用 Facebook 服务期间发生欺诈和滥用。为法律要求或义务、政府调查、涉及可能违反我们的条款或政策的调查、或预防伤害等方面的内容，则可能需要在一段较长时间内予以访问、处理和保留。我们也会将由于违反我们的条款而受到禁用的帐户信息保留至少一年，以防止重复违规或侵犯我们条款的行为。</font>\n
+   </string>
+    <string name="setting_exceeding">超出设定的时间</string>
+    <string name="setting_sunday">周日</string>
+    <string name="setting_time_min">时间(分)</string>
+    <string name="setting_monday">周一</string>
+    <string name="setting_tuesday">周二</string>
+    <string name="setting_wednesday">周三</string>
+    <string name="setting_thursday">周四</string>
+    <string name="setting_friday">周五</string>
+    <string name="setting_saturday">周六</string>
+    <string name="setting_excedding">超出当日设定</string>
+    <string name="setting_lock">锁屏</string>
+    <string name="setting_alarm">通知提示</string>
+    <string name="setting_password">修改登录密码</string>
+    <string name="setting_check_version">版本检查</string>
+    <string name="setting_comment">给戒戒评分</string>
+    <string name="setting_policy">用户协议</string>
+    <string name="setting_feedback">反馈</string>
+    <string name="setting_help">帮助</string>
+    <string name="prompt_usr">用户名/手机号码</string>
+    <string name="prompt_password">请输入密码</string>
+    <string name="action_sign_in">登陆</string>
+    <string name="action_sign_up">注册</string>
+    <string name="action_create_count">创建账号</string>
+    <string name="prompt_phone_number_confirmation">电话号码确认</string>
+    <string name="sms_authentication_code_info">［戒戒］您的验证码是</string>
+    <string name="verification_code">验证码</string>
+    <string name="get_auth_code">获取验证码</string>
+    <string name="set_auth_code">请输入验证码</string>
+    <string name="reget_auth_code">重新获取</string>
+    <string name="reget_after">秒后重新获取</string>
+    <string name="error_invalid_veri_code">抱歉，验证码错误!</string>
+    <string name="action_sign_in_short">登录</string>
+    <string name="action_skip_short">跳过</string>
+    <string name="error_invalid_email">邮件非法</string>
+    <string name="error_invalid_password">密码太短</string>
+    <string name="error_incorrect_password">密码不正确</string>
+    <string name="error_field_required">This field is required</string>
+    <string name="HtmlHelpData">
+        <h1><font size="24">帮助</font></h1> \n
+        <b><font size="18"><li>Q:为什么我的每日数据显示空白 ？</li></font></b>\n
+        <font size="16">A:请打开戒戒->选择设置->启动监视->辅助功能，选择戒戒->开启。</font>\n\n
+
+        <b><font size="18"><li>Q:每日数据太小了，看不清楚？</li></font></b>\n
+        <font size="16">A:请使用你的两根手指使劲上下左右拉伸，放大到你看的清楚为止。</font>\n\n
+
+        <b><font size="18"><li>Q:为什么要激活设备？</li></font></b>\n
+        <font size="16">A:激活是为了让本机有锁屏的功能，且不容易被卸载。</font>\n\n
+
+        <b><font size="18"><li>QQ:如何卸载戒戒？</li></font></b>\n
+        <font size="16">A:如果遇到不能卸载的情况，请停掉系统设置->安全->设备管理器，找到戒戒，把勾勾去掉后，就可以卸载了。</font>\n\n
+
+        <b><font size="18"><li>Q:多长时间统计一次？</li></font></b>\n
+        <font size="16">A:半分钟。</font>\n\n
+
+        <b><font size="18"><li>Q:为什么在“今日”可以显示的应用名，在“当月”里却没显示呢？</li></font></b>\n
+        <font size="16">A:“当月”只显示前当月的前10应用，说明没显示的”今日“里的应用没有在10名以外了，无法显示。如果要显示全部应用，请下载收费版本。</font>\n\n
+
+        <b><font size="18"><li>Q:为什么在“今日”没有显示我使用过的应用的统计数据呢？</li></font></b>\n
+        <font size="16">A:“当日”只显示频繁使用的前10个的应用，你当前使用的应用时间没有超过前十，所以不在前10之列，故不显示，如果要显示全部应用，请下载收费版本。</font>\n\n
+
+        <b><font size="18"><li>Q:为何无法查看“家人圈”中好友？</li></font></b>\n
+        <font size="16">A:因为该好友还未安装戒戒或者还未绑定他的手机号码。</font>\n\n
+
+        <b><font size="18"><li>Q:为何只能查看“家人圈”中好友的当天应用使用统计？</li></font></b>\n
+        <font size="16">A:因为你目前版本不支持查看好友多日的记录。</font>\n\n
+
+        <b><font size="18"><li>Q:为何无法监管“家人圈”中好友？</li></font></b>\n
+        <font size="16">A:1.可能该好友未安装戒戒；2.该好友未绑定手机号码</font>\n\n
+
+        <b><font size="18"><li>Q:如何绑定手机号码？</li></font></b>\n
+        <font size="16">A:设置->绑定手机号，在弹出的对话框里输入你的手机号码->提交</font>\n\n
+
+        <b><font size="18"><li>Q:设置->”自我设置”是干嘛用的？</li></font></b>\n
+        <font size="16">A:自我设置是对自己的一种约束，规定自己在某日使用手机的时间不能超过设定的时间。</font>\n\n
+
+        <b><font size="18"><li>Q:为何自我设置不起作用？</li></font></b>\n
+        <font size="16">A:设定时间后，一定要记得勾选“超出设定的时间”中的锁住，并确认在弹出的“激活设备管理器”中选择“激活“。</font>\n\n
+
+   </string>
+
+</resources>

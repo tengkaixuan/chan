@@ -1,0 +1,18 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/tab_space_top"
+    android:paddingLeft="@dimen/tab_space_top"
+    android:paddingRight="@dimen/tab_space_top"
+    android:paddingTop="@dimen/tab_space_top">
+
+    <ListView
+        android:id="@+id/listViewDetail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true" >
+    </ListView>
+
+</RelativeLayout>

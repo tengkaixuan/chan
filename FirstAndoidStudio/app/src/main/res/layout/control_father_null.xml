@@ -1,0 +1,74 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/family_bind_layout">
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="@string/family_bind_hint"
+        android:id="@+id/family_bind_hint"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="@string/family_bind_phone"
+        android:id="@+id/family_bind_phone"
+        android:layout_below="@+id/family_bind_hint"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="phone"
+        android:ems="10"
+        android:id="@+id/family_bind_phone_enter"
+        android:text="phone"
+        android:layout_alignTop="@+id/family_bind_phone"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="@string/family_bind_validate"
+        android:id="@+id/family_bind_validate"
+        android:layout_below="@+id/family_bind_hint"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="62dp" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/family_bind_validate_enter"
+        android:ems="4"
+        android:text="vali"
+        android:layout_alignTop="@+id/family_bind_validate"
+        android:layout_alignLeft="@+id/family_bind_phone_enter"
+        android:layout_alignStart="@+id/family_bind_phone_enter" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/family_bind_validate_get"
+        android:id="@+id/family_validate_get"
+        android:layout_alignTop="@+id/family_bind_validate_enter"
+        android:layout_alignRight="@+id/family_bind_hint"
+        android:layout_alignEnd="@+id/family_bind_hint" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/family_bind_button_ok"
+        android:id="@+id/family_binding"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true" />
+
+</RelativeLayout>

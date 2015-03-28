@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="@drawable/title_bar"
+    android:layout_width="fill_parent"
+    android:layout_height="50dip">
+
+    <ImageView
+        android:id="@+id/supervision_title_bar_back"
+        android:layout_width="34dip"
+        android:layout_height="34dip"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:scaleType="centerInside"
+        android:src="@drawable/ic_nav_back" />
+
+    <ImageView
+        android:id="@+id/supervion_resv_chart"
+        android:layout_width="34dip"
+        android:layout_height="34dip"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:scaleType="centerInside"
+        android:src="@drawable/bar_chart_icon"
+        android:visibility="invisible" />
+    <TextView
+        android:id="@+id/title_bar_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:text="@string/tab_monitor"
+
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+    
+</RelativeLayout>

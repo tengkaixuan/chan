@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/main_layout"
+    android:layout_width="300dip"
+    android:layout_height="400dip"
+    android:background="#FFFFFF"
+    android:layout_gravity="center_horizontal|center_vertical"
+    android:padding="30.0dip">
+
+    <TextView
+        android:id="@+id/bind_hint"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingBottom="10.0dip"
+        android:text="@string/bind_phone_hint"
+        android:textColor="#ff555555"
+        android:textSize="14.0dip" />
+
+    <ImageView
+        android:layout_width="100dip"
+        android:layout_height="119dip"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/binding_cartoon"
+        android:layout_below="@id/bind_hint" />
+
+    <Button
+        android:id="@+id/pos_button"
+        android:layout_width="125.0dip"
+        android:layout_height="wrap_content"
+        android:background="#38acc8"
+        android:layout_alignParentBottom="true"
+        android:textColor="#FFFFFF"
+        android:text="@string/bind_phone_next"
+        android:paddingRight="10.0dip" />
+
+    <Button
+        android:id="@+id/nag_button"
+        android:layout_width="125.0dip"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@id/pos_button"
+        android:layout_toRightOf="@id/pos_button"
+        android:layout_marginLeft="10dip"
+        android:textColor="#FFFFFF"
+        android:text="@string/bind_phone_cancel"
+        android:background="@drawable/pop_dialog_title_bg" />
+
+    <EditText
+        android:id="@+id/phone_nubmer"
+        android:layout_width="280dip"
+        android:layout_height="40dip"
+        android:layout_above="@id/pos_button"
+        android:layout_marginBottom="70dip"
+        android:hint="@string/bind_phone_number"
+        android:gravity="bottom"
+        android:textColor="#000000"
+        android:paddingLeft="10dip"
+        android:inputType="phone"
+        android:background="@drawable/enter_phone_line" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingBottom="40.0dip"
+        android:paddingTop="10.0dip"
+        android:layout_above="@id/pos_button"
+        android:text="@string/bind_phone_hint_bottom"
+        android:textColor="#ff555555"
+        android:textSize="14.0dip" />
+</RelativeLayout>

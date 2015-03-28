@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/list_row_selector"
+    android:padding="8dip"
+    android:id="@+id/family_individual">
+
+    <!-- Thumbnail Image -->
+    <ImageView
+        android:id="@+id/contact_icon"
+        android:layout_width="50sp"
+        android:layout_height="50sp"
+        android:src="@drawable/default_contact_icon"
+        android:layout_alignParentLeft="true"
+        android:layout_marginRight="8dip" />
+
+    <!-- name -->
+    <TextView
+        android:id="@+id/contact_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/contact_icon"
+        android:layout_toRightOf="@+id/contact_icon"
+        android:textSize="@dimen/normal_size"
+        android:text="jiecon_name"
+        android:textStyle="bold"
+        android:textColor="@color/black" />
+
+    <!-- phone -->
+    <TextView
+        android:id="@+id/contact_number"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/contact_name"
+        android:layout_marginTop="1dip"
+        android:layout_toRightOf="@+id/contact_icon"
+        android:text="jiecon_id"
+        android:textStyle="bold"
+        android:textSize="@dimen/normal_size"
+        android:textColor="@color/black" />
+    <!-- phone -->
+    <TextView
+        android:id="@+id/contact_divider"
+        android:layout_width="fill_parent"
+        android:layout_height="8sp"
+        android:layout_below="@id/contact_number"
+        android:layout_marginTop="1dip"
+        android:textSize="@dimen/normal_size"
+        android:gravity="bottom"
+        android:height="@dimen/normal_size"
+        android:textColor="@color/black" />
+
+
+    <!-- role -->
+    <TextView
+        android:id="@+id/phone_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/contact_divider"
+        android:textSize="@dimen/normal_size"
+        android:textColor="@color/black" />
+
+    <!-- divider -->
+    <TextView
+        android:id="@+id/contact_divider_b"
+        android:layout_width="40dip"
+        android:layout_height="8sp"
+        android:layout_below="@id/contact_divider"
+        android:layout_toRightOf="@+id/phone_label"
+        android:textSize="@dimen/normal_size"
+        android:textColor="@color/black" />
+
+    <TextView
+        android:id="@+id/contact_role"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/contact_divider"
+        android:layout_toRightOf="@+id/contact_divider_b"
+        android:text="@string/family_parent"
+        android:textSize="@dimen/normal_size"
+        android:textColor="@color/black"
+        android:gravity="left" />
+
+    <TextView
+        android:id="@+id/contacts_status"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/contact_role"
+        android:textSize="@dimen/normal_size"
+        android:textColor="@color/black" />
+
+    <TextView
+        android:id="@+id/contact_divider_d"
+        android:layout_width="fill_parent"
+        android:layout_height="35sp"
+        android:layout_below="@id/contacts_status"
+        android:layout_marginTop="1dip"
+        android:textSize="@dimen/normal_size"
+        android:gravity="bottom"
+        android:textColor="@color/black" />
+
+    <Button
+        android:id="@+id/both_action_1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/contact_divider_d"
+        android:textColor="@color/black"
+        android:text="@string/action_supervise"
+        android:textSize="@dimen/normal_size"
+        android:layout_gravity="right"
+        android:textAlignment="center" />
+
+    <Button
+        android:id="@+id/son_action_2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/both_action_1"
+        android:textColor="@color/black"
+        android:textSize="@dimen/normal_size"
+        android:layout_gravity="right"
+        android:text="@string/status_20_label"
+        android:textAlignment="center" />
+
+    <Button
+        android:id="@+id/son_action_3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/son_action_2"
+        android:textColor="@color/black"
+        android:textSize="@dimen/normal_size"
+
+        android:layout_gravity="right"
+        android:text="@string/status_30_label" />
+
+    <Button
+        android:id="@+id/father_action_2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/son_action_3"
+        android:textColor="@color/black"
+        android:textSize="@dimen/normal_size"
+
+        android:layout_gravity="right"
+        android:text="@string/action_cancel_supervision"
+        android:textAlignment="center" />
+
+    <Button
+        android:id="@+id/father_action_3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/father_action_2"
+        android:textColor="@color/black"
+        android:textSize="@dimen/normal_size"
+
+        android:layout_gravity="right"
+        android:text="@string/action_lock" />
+
+    <Button
+        android:id="@+id/monitor_daily"
+        android:text="@string/monitor_daily"
+        android:layout_below="@id/father_action_3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+</RelativeLayout>

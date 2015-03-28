@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="@drawable/title_bar"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+
+    <ImageView
+        android:id="@+id/title_bar_back"
+        android:layout_width="50dip"
+        android:layout_height="30dip"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:scaleType="centerInside"
+        android:src="@drawable/back" />
+
+    <ImageView
+        android:id="@+id/more_title_bar_refresh"
+        android:layout_width="34dip"
+        android:layout_height="34dip"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:scaleType="centerInside"
+        android:visibility="gone"
+        android:src="@drawable/refresh_left" />
+
+    <TextView
+        android:id="@+id/title_bar_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:text="更多"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+    
+</RelativeLayout>

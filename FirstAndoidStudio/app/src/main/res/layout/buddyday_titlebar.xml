@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="@drawable/title_bar"
+    android:layout_width="fill_parent"
+    android:layout_height="50dip">
+
+    <ImageView
+        android:id="@+id/title_bar_back"
+        android:layout_width="34dip"
+        android:layout_height="34dip"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:scaleType="centerInside"
+        android:src="@drawable/ic_nav_back" />
+
+    <ImageView
+        android:id="@+id/bar_chart"
+        android:layout_width="34dip"
+        android:layout_height="34dip"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="8dip"
+        android:layout_marginLeft="5dip"
+        android:scaleType="centerInside"
+        android:src="@drawable/bar_chart_icon" />
+
+    <ImageView
+        android:id="@+id/pie_chart"
+        android:layout_width="34dip"
+        android:layout_height="34dip"
+        android:layout_toLeftOf="@id/bar_chart"
+        android:layout_centerVertical="true"
+        android:scaleType="centerInside"
+        android:src="@drawable/pie_chart_icon" />
+
+    <TextView
+        android:id="@+id/title_bar_text"
+        android:layout_width="140dip"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="80dip"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:text="@string/app_name"
+        android:singleLine="true"
+        android:textSize="16dip"
+        android:textColor="#FFFFFF"
+        android:ellipsize="marquee"
+        android:marqueeRepeatLimit="marquee_forever"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+
+</RelativeLayout>

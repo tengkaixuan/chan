@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <ImageView
+        android:id="@+id/icon"
+        android:layout_width="36dip"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginRight="12dip"
+        android:contentDescription="@string/icon_description" />
+
+    <TableLayout>
+        <TableRow        
+            android:id="@+id/TableRow01"                
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content" >
+            <TextView
+                android:id="@+id/appName"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:height="20sp"
+                android:text="categoryId"
+                android:textColor="#FFFFFF" />
+
+            <TextView
+                android:id="@+id/appPercentage"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="right"
+                android:height="20sp"
+                android:text="description"
+                android:textColor="#FFFFFF" />
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/TableRow02"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content" >
+
+            <TextView
+                android:id="@+id/appBarChart"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="left"
+                android:height="40sp"
+                android:text="id"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold"
+                android:typeface="monospace" />
+        </TableRow>
+    </TableLayout>
+
+</RelativeLayout>

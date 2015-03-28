@@ -1,0 +1,29 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/family_show_layout">
+
+    <include android:id="@+id/control_null" layout="@layout/control_father_null"/>
+
+    <ListView
+        android:id="@+id/list_contact"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:divider="@color/list_divider"
+        android:dividerHeight="1dp"
+        android:visibility="gone"
+        android:listSelector="@drawable/list_row_selector" />
+
+    <ListView
+        android:id="@+id/list_monitor"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:divider="@color/list_divider"
+        android:dividerHeight="1dp"
+        android:visibility="gone"
+        android:listSelector="@drawable/list_row_selector" />
+
+    <include android:id="@+id/supervision_settings" layout="@layout/control_supervision"/>
+
+
+</RelativeLayout>

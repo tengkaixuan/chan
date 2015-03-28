@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+	<!-- draw tab background -->
+	<item android:left="@dimen/tab_space" android:right="@dimen/tab_space">
+        <shape android:shape="rectangle">
+            <solid android:drawable="@drawable/tab_select_indicator"/>
+        </shape>
+	</item>
+
+</layer-list>
