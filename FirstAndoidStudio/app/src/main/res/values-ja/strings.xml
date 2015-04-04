@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">JieJie</string>
+    <string name="tab_everyday">今日</string>
+    <string name="tab_everymonth">今月</string>
+    <string name="tab_monitor">ﾓｰﾒﾝﾂ</string>
+    <string name="tab_setting">設定</string>
+    <string name="menu_settings">Settings</string>
+    <string name="title_contacts">連絡先</string>
+    <string name="hello_world">Hello World!</string>
+    <string name="icon_description">jiejie</string>
+    <string name="data_app">jiecon</string>
+    <string name="findContact">人　探し…</string>
+    <string name="family_bind_hint">携帯番号を先にバインドしてください</string>
+    <string name="family_bind_phone">携帯番号:</string>
+    <string name="family_bind_validate">認証コード:</string>
+
+    <string name="family_bind_validate_refresh">再取得</string>
+    <string name="family_bind_validate_get">認証コード取得</string>
+    <string name="family_bind_button_ok">バインド</string>
+    <string name="family_bind_passed">バインド完了!</string>
+    <string name="family_bind_failed">バインド失敗!</string>
+    <string name="family_bind_no_friends">モーメンツに友達がいませんよ!</string>
+    <string name="family_bind_add">追加</string>
+    <string name="contacts_add_as_friend">友達になる。</string>
+    <string name="family_bind_invite">誘う</string>
+    <string name="family_bind_added">追加済み</string>
+    <string name="family_bind_empty_contact_list">携帯の連絡先にデータが存在しません！</string>
+    <string name="family_detail">詳細</string>
+    <string name="family_cancel">取消し</string>
+    <string name="family_parent">親</string>
+    <string name="family_kid">子</string>
+    <string name="family_friend">友達</string>
+    <string name="family_bind_dialog_monitor_title">インフォメーション</string>
+    <string name="family_bind_phone_title">携帯番号バインド</string>
+    <string name="family_bind_phone_hint">携帯番号を入力してください</string>
+    <string name="family_phone_null">携帯番号が空白できません</string>
+    <string name="family_bind_dialog_no_sim_card">携帯番号を取得できません！</string>
+    <string name="family_bind_dialog_monitor_add_exist">該当番号が既に存在しています。</string>
+    <string name="family_bind_dialog_monitor_add_success">追加完了</string>
+    <string name="family_bind_dialog_monitor_warning">相手はまだJieJieをインストールしていないため、しばらく監視できません。</string>
+    <string name="family_please_check_family_tab_message">(モーメンツをチェックしてください)</string>
+
+    <string name="title_activity_test">test</string>
+    <string name="action_settings">設定</string>
+    <string name="register_nickname">ﾆｯｸﾈｰﾑ</string>
+    <string name="register_nickname_sample">田中　花子</string>
+    <string name="register_china_code">+81</string>
+    <string name="register_hint_phone_number">携帯番号</string>
+    <string name="OK">確定</string>
+    <string name="Reply">回答</string>
+    <string name="YES">はい</string>
+    <string name="NO">いいえ</string>
+    <string name="AGREE">承諾</string>
+    <string name="DISAGREE">拒否</string>
+    <string name="WAITMONMENT">少々待ち</string>
+    <string name="CANCEL">取消し</string>
+
+    <string name="title_activity_main_activity2">Activities取得</string>
+    <string name="YEAR">年</string>
+    <string name="MONTH">月</string>
+    <string name="DAY">日</string>
+    <string name="HOUR">時</string>
+    <string name="MIN">分</string>
+    <string name="MIN2">分</string>
+    <string name="SEC">秒</string>
+    <string name="COUNT">回</string>
+    <string name="phone_occupied_time">携帯の使用時間:</string>
+    <string name="phone_call_time">携帯の通話時間:</string>
+    <string name="phone_switchon_count">画面解除回数:   </string>
+    <string name="phone_threshold_time">初期時間:   </string>
+    <string name="congratulations">おめでとう！初期設定の目標を達成しました。</string>
+    <string name="credit">成果: </string>
+    <string name="supervision_warn">相手はまだJieJieをインストールしていません!</string>
+    <string name="control_supervision_text">使用時間の上限値</string>
+    <string name="control_supervision_btn_text">設定</string>
+    <string name="title_activity_supervision_setting">SupervisionSetting</string>
+    <string name="supervision_time_setting_warn">時間が空白できませんよ</string>
+    <string name="supervision_setting_ok">監視請求を発送しました、相手の承諾を待ちしてください。</string>
+    <string name="supervision_setting_fail">監視請求の発送が失敗しました。ネットワークをチェックしてください。</string>
+    <string name="settings_time_period_lable1">自分監視(時間)</string>
+    <string name="control_supervision_mins_lable">使用時間の上限値(時間)</string>
+    <string name="supervision_my_supervisor_label">監視している人</string>
+    <string name="supervision_supervised_label">監視されている人</string>
+    <string name="supervision_exceed_day_limit_label">当日の設定を超えたら、画面をロックする</string>
+    <string name="supervision_exceed_limit_notification">当日の設定を超えたら、お知らせする</string>
+    <string name="login_account_update">ｱｶｳﾝﾄ設定</string>
+    <string name="status_10">監視請求</string>
+    <string name="status_10_label">監視請求中</string>
+    <string name="status_10_label_father">監視請求中</string>
+    <string name="status_11">監視承諾しました</string>
+    <string name="status_11_label">監視承諾</string>
+    <string name="status_11_label_fail">監視の承諾が失敗しました。ネットワークをチェックしてください。</string>
+    <string name="status_12">監視拒否</string>
+    <string name="status_12_label">監視拒否</string>
+    <string name="status_20">監視解除の請求</string>
+    <string name="status_20_label">監視解除の請求</string>
+    <string name="status_20_label_ok">監視解除の請求を発送完了しまた。</string>
+    <string name="status_20_label_fail">監視解除の申請が失敗しました。ネットワークをチェックしてください。</string>
+    <string name="status_21">解除承諾</string>
+    <string name="status_21_label_agree">監視の解除が承諾しました</string>
+    <string name="status_21_label">解除承諾</string>
+    <string name="status_21_label_fail">解除承諾が失敗しました。ネットワークをチェックしてください。</string>
+    <string name="status_22">解除拒否</string>
+    <string name="status_22_label">監視の解除拒否</string>
+    <string name="status_30">画面アンロックを請求</string>
+    <string name="status_30_label">画面アンロックを請求</string>
+    <string name="status_30_label_ok">画面アンロックを発送完了しました。</string>
+    <string name="status_30_label_fail">画面アンロックを請求が失敗しました。ネットワークをチェックしてください。</string>
+    <string name="status_31_1">画面アンロックを承諾しました</string>
+    <string name="status_31_2">画面が直接にロックされました。</string>
+    <string name="status_31_3">画面ロックが解除されました。</string>
+    <string name="status_31_label">画面アンロックが承諾しました</string>
+    <string name="status_31_label_fail">画面アンロックの承諾を発送失敗しました。ネットワークをチェックしてください。</string>
+    <string name="status_32">画面アンロック拒否</string>
+    <string name="status_32_label">画面アンロック拒否</string>
+    <string name="status_msg">附帯情報(%1$s)</string>
+    <string name="status_msg_no">附帯情報(無し)</string>
+    <string name="lock_screen_warning">貴方本日携帯の総利用時間(%1$d分)がしばらく\n設定された時間(%2$d分)を超えました。JieJieは%3$d分後に携帯の画面をロックします。%4$sに画面ロック解除を请求してください。明日から自動的にアンロックします。</string>
+    <string name="lock_screen_warning_me">貴方本日携帯の総利用時間(%1$d分)がしばらく\n設定された時間(%2$d分)を超えました。休んでくださいね。</string>
+    <string name="lock_screen_warning_me_lock">貴方本日携帯の総利用時間(%1$d分)がしばらく\n設定された時間(%2$d分)を超えました。JieJieは%3$d分後に携帯の画面をロックします。%4$sに画面ロック解除を请求してください。明日から自動的にアンロックします。</string>
+    <string name="service_is_stop">監視サービスを起動してください、そうしないとJieJieが%1$d分後に画面をロックします。</string>
+    <string name="status_supervision">監視中</string>
+    <string name="status_supervision_no">未監視</string>
+    <string name="status_supervision_yes">監視</string>
+    <string name="status_supervision_son">監視される</string>
+    <string name="status_friend_label">タッチして監視します。</string>
+    <string name="status_supervision_free_label">監視中</string>
+    <string name="status_supervised">自分を監視してください</string>
+    <string name="action_supervise">監視請求</string>
+    <string name="action_cancel_supervision">監視解除</string>
+    <string name="action_unlock">画面アンロック</string>
+    <string name="action_lock">直ちに画面ロック</string>
+
+    <string name="title_activity_supervision_details">家族状況</string>
+    <string name="title_activity_mock_lock">MockLockActivity</string>
+    <string name="str_password">パスワード</string>
+    <string name="EnterPassword">パスワードを入力してください</string>
+    <string name="title_activity_signup">SignupActivity</string>
+    <string name="monitor_daily">今日データ参照</string>
+    <string name="day_app_percent">トップ%1$dアプリのパーセント</string>
+    <string name="day_bar_discript">トップ%1$dアプリ</string>
+    <string name="day_pie_center">トップ%1$dアプリ\nパーセント</string>
+    <string name="day_pie_descript">dobi提供</string>
+
+    <string name="setting_change_phone">携帯番号を変更(現在：  %s)</string>
+    <string name="setting_binding_phone">バインドしようとする携帯番号を入力してください：</string>
+    <string name="setting_cancel">Cancel</string>
+    <string name="setting_ok">OK</string>
+    <string name="setting_nickname_input">ﾆｯｸﾈｰﾑを入力してください：</string>
+    <string name="setting_nickname_hint">ヒント</string>
+    <string name="setting_nickname_modify_success">変更完了しました。</string>
+    <string name="setting_nickname_modify_failed">変更失敗しました。</string>
+    <string name="setting_userid_label">ユーザID(現在: %s)</string>
+    <string name="setting_nickname_label">ﾆｯｸﾈｰﾑ変更(現在: %s)</string>
+    <string name="setting_start_monitor">監視サービス起動(現在:運行中)</string>
+    <string name="setting_stop_monitor">監視サービス起動(現在:停止)</string>
+    <string name="xformathh">時</string>
+    <string name="xformatmm">分</string>
+    <string name="buddy_day_title">JieJieがインストールされいないため、利用データがありません。</string>
+    <string name="buddy_day_showdate"> 統計時間-%s</string>
+    <string name="bind_phone_number">携帯番号</string>
+    <string name="bind_phone_hint">友達が見つかるため、携帯番号を入力してください。</string>
+    <string name="bind_phone_hint_bottom">携帯番号を入力してください。</string>
+    <string name="bind_phone_next">次へ</string>
+    <string name="bind_phone_cancel">取消し</string>
+    <string name="family_no_monitor">監視の解除を申請しますか？</string>
+    <string name="family_apply_unlock">%s に監視解除を申請しましか？</string>
+    <string name="family_stop_monitor">監視を停止してもよろしいですか？</string>
+    <string name="family_apply_stop_unlock">%s を画面アンロックしてもよろしいですか？</string>
+    <string name="family_lock_who"> %s を画面ロックしてもよろしいですか?</string>
+    <string name="family_lock_success">画面ロック成功しました</string>
+    <string name="family_apply_monitor">%s から監視の請求がありました。承諾してもよろしいですか？</string>
+    <string name="family_apply_no_monitor">%s が監視の解除が申請中</string>
+    <string name="family_apply_unlock_who">%s が画面のアンロックが申請中</string>
+    <string name="family_add_buddy">"モーメンツに追加？"</string>
+    <string name="time_limited">"時間上限:   "</string>
+    <string name="locked_msg">本日の利用時間を越えたため、ロックされました。戻るボタンで該当画面から戻ります。</string>
+    <string name="family_lock_failed">画面ロックできない</string>
+    <string name="HtmlData">
+        <h1><font size="18">PRIVATE POLICY</font></h1> \n
+        <font size="12">Dobi Technology Co.,Ltd. is committed to keeping any and all personal information collected of those individuals that visit our website and make use of our online facilities, apps and related services (the "Service") accurate, confidential, secure and private. Our privacy policy has been designed and created to ensure those affiliated with Dobi Technology Co.,Ltd. of our commitment and realization of our obligation not only to meet but to exceed most existing privacy standards.
+
+THEREFORE, this Privacy Policy Agreement shall apply to Dobi Technology Co.,Ltd., and thus it shall govern any and all data collection and usage thereof. Through the use of www.ignorenomoreapp.com you are herein consenting to the following data procedures expressed within this agreement.</font>  \n\n
+        <b>Collection of Information</b> \n\n
+
+        <b><small>Things you do and information you provide.</small></b>\n
+        <font size="12">We collect the content and other information you provide when you use our Services, including when you sign up for an account, create or share, and message or communicate with others. This can include information in or about the content you provide, such as the location of a photo or the date a file was created. We also collect information about how you use our Services, such as the types of content you view or engage with or the frequency and duration of your activities.</font>\n
+
+        <b><small>Things others do and information they provide.</small></b>\n
+        <font size="12">We also collect content and information that other people provide when they use our Services, including information about you, such as when they share a photo of you, send a message to you, or upload, sync or import your contact information.</font>\n
+
+        <b><small>Your networks and connections.</small></b>\n
+        <font size="12">We collect information about the people and groups you are connected to and how you interact with them, such as the people you communicate with the most or the groups you like to share with. We also collect contact information you provide if you upload, sync or import this information (such as an address book) from a device.</font>\n
+
+        <b><small>Device information.</small></b>\n
+        <font size="12">We collect information from or about the computers, phones, or other devices where you install or access our Services, depending on the permissions you’ve granted. We may associate the information we collect from your different devices, which helps us provide consistent Services across your devices. Here are some examples of the device information we collect: </font>\n
+        <small><li>Attributes such as the operating system, hardware version, device settings, file and software names and types, battery and signal strength, and device identifiers.</li></small>\n
+        <small><li>Device locations, including specific geographic locations, such as through GPS, Bluetooth, or WiFi signals.</li></small>\n
+        <small><li>Connection information such as the name of your mobile operator or ISP, browser type, language and time zone, mobile phone number and IP address.</li></small>\n
+
+        \n\n<b>How do we use this information?</b> \n\n
+        <font size="12">We are passionate about creating engaging and customized experiences for people. We use all of the information we have to help us provide and support our Services. Here is how:</font>\n\n
+        <b><small>Provide, improve and develop Services.</small></b>\n
+        <font size="12">We are able to deliver our Services, personalize content, and make suggestions for you by using this information to understand how you use and interact with our Services and the people or things you’re connected to and interested in on and off our Services. </font>\n\n
+        <font size="12">We also use information we have to provide shortcuts and suggestions to you.</font>\n\n
+        <font size="12">When we have location information, we use it to tailor our Services for you and others, like helping you to check-in and find local events or offers in your area or tell your friends that you are nearby. </font>\n\n
+        <font size="12">We conduct surveys and research, test features in development, and analyze the information we have to evaluate and improve products and services, develop new products or features, and conduct audits and troubleshooting activities.</font>\n\n
+        <b><small>Promote safety and security.</small></b>\n
+        <font size="12">We use the information we have to help verify accounts and activity, and to promote safety and security on and off of our Services, such as by investigating suspicious activity or violations of our terms or policies. We work hard to protect your account using teams of engineers, automated systems, and advanced technology such as encryption and machine learning. We also offer easy-to-use security tools that add an extra layer of security to your account. For more information about promoting safety on Dobi, visit the Dobi Security Help Center.</font>
+
+        \n\n<b>How do we respond to legal requests or prevent harm?</b>\n\n
+        <font size="12">We may access, preserve and share your information in response to a legal request (like a search warrant, court order or subpoena) if we have a good faith belief that the law requires us to do so. This may include responding to legal requests from jurisdictions outside of the United States where we have a good faith belief that the response is required by law in that jurisdiction, affects users in that jurisdiction, and is consistent with internationally recognized standards. We may also access, preserve and share information when we have a good faith belief it is necessary to: detect, prevent and address fraud and other illegal activity; to protect ourselves, you and others, including as part of investigations; or to prevent death or imminent bodily harm. For example, we may provide information to third-party partners about the reliability of your account to prevent fraud and abuse on and off of our Services. Information we receive about you, may be accessed, processed and retained for an extended period of time when it is the subject of a legal request or obligation, governmental investigation, or investigations concerning possible violations of our terms or policies, or otherwise to prevent harm. We also may retain information from accounts disabled for violations of our terms for at least a year to prevent repeat abuse or other violations of our terms.</font>\n
+   </string>
+    <string name="title_activity_notification_tap">NotificationTapActivity</string>
+    <string name="setting_sunday">日曜</string>
+    <string name="setting_time_min">時間(分)</string>
+    <string name="setting_monday">月曜</string>
+    <string name="setting_tuesday">火曜</string>
+    <string name="setting_wednesday">水曜</string>
+    <string name="setting_thursday">木曜</string>
+    <string name="setting_friday">金曜</string>
+    <string name="setting_saturday">土曜</string>
+    <string name="setting_exceeding">利用時間越え</string>
+    <string name="setting_lock">ロック</string>
+    <string name="setting_alarm">通知</string>
+    <string name="setting_password">パスワード変更</string>
+    <string name="setting_check_version">ソフト更新</string>
+    <string name="setting_comment">コメント</string>
+    <string name="setting_policy">ﾌﾟﾗｲﾊﾞｼｰ ﾎﾟﾘｼｰ</string>
+    <string name="setting_feedback">ﾌｨｰﾄﾞﾊﾞｯｸ</string>
+    <string name="setting_help">ヘルプ</string>
+    <string name="prompt_usr">ユーザ名/携帯番号</string>
+    <string name="prompt_password">パスワード</string>
+    <string name="action_sign_in">ログイン</string>
+    <string name="action_sign_up">ログアウト</string>
+    <string name="action_create_count">ｱｶｳﾝﾄ作成</string>
+    <string name="prompt_phone_number_confirmation">携帯番号確認</string>
+    <string name="sms_authentication_code_info">認証ｺｰﾄﾞ</string>
+    <string name="verification_code">認証ｺｰﾄﾞ</string>
+    <string name="get_auth_code">認証ｺｰﾄﾞ取得</string>
+    <string name="set_auth_code">認証ｺｰﾄﾞ入力</string>
+    <string name="reget_auth_code">ﾘﾌﾚｯｼｭ</string>
+    <string name="reget_after">認証ｺｰﾄﾞ　ﾘﾌﾚｯｼｭ</string>
+    <string name="error_invalid_veri_code">認証ｺｰﾄﾞ ｴﾗｰ</string>
+    <string name="action_sign_in_short">ログイン</string>
+    <string name="action_skip_short">スキップ</string>
+
+    <string name="error_invalid_email">ﾒｰﾙｱﾄﾞﾚｽが誤ります</string>
+    <string name="error_invalid_password">パスワードが短い過ぎ</string>
+    <string name="error_incorrect_password">パスワード間違い</string>
+    <string name="error_field_required">必須項目</string>
+</resources>

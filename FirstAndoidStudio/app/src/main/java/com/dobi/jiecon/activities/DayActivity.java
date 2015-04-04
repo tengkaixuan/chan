@@ -2,6 +2,9 @@ package com.dobi.jiecon.activities;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.content.Context;
+import android.content.pm.ApplicationInfo;
+import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
@@ -18,6 +21,8 @@ import com.dobi.jiecon.UtilLog;
 import com.dobi.jiecon.database.AppUsage;
 import com.dobi.jiecon.datacontroller.AppUsageManager;
 import com.dobi.jiecon.datacontroller.RegistrationManager;
+import com.dobi.jiecon.utils.Common;
+import com.dobi.jiecon.utils.Config;
 import com.dobi.jiecon.utils.MathCalculate;
 import com.dobi.jiecon.utils.TimeFormat;
 import com.github.mikephil.charting.MyValueFormatter;
@@ -52,12 +57,12 @@ public class DayActivity extends Activity implements OnChartValueSelectedListene
     //应用名写前面三个字母，当用点击时，bar上显示全称
     //Show activity abstraction, when click the bar show the whole name on the it.
     // this is for barchart
-    protected String[] mMonths = new String[] {
+    protected String[] mMonths = new String[]{
             "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Okt"
     };
 
     //this is for pie char
-    protected String[] mParties = new String[] {
+    protected String[] mParties = new String[]{
             "Party A", "Party B", "Party C", "Party D", "Party E", "Party F", "Party G", "Party H",
             "Party I", "Party J", "Party K", "Party L", "Party M", "Party N", "Party O", "Party P",
             "Party Q", "Party R", "Party S", "Party T", "Party U", "Party V", "Party W", "Party X",
@@ -179,10 +184,12 @@ public class DayActivity extends Activity implements OnChartValueSelectedListene
         List<AppUsage> ret = AppUsageManager.get_app_duration_day(user_id, TimeFormat.Now());
         long totaltime = AppUsageManager.get_today_app_duration_total();
         if (ret != null && ret.size() > 0) {
-            for(int i = 0; i<ret.size(); i++) {
-                xVals.add(ret.get(i).getApp_name());
+            for (int i = 0; i < ret.size(); i++) {
+
+
+                xVals.add(Common.getAppName(this, ret.get(i)));
                 long time = ret.get(i).getDuration();
-                float percent = (float)time / (float)totaltime;
+                float percent = (float) time / (float) totaltime;
                 float f_duration = MathCalculate.float2float(percent, 2);
                 yVals1.add(new BarEntry(f_duration, i));
             }
@@ -206,7 +213,7 @@ public class DayActivity extends Activity implements OnChartValueSelectedListene
         // add a lot of colors
 
         ArrayList<Integer> colors = new ArrayList<Integer>();
-        for(int c: ColorTemplate.HARVEY_COLORS) {
+        for (int c : ColorTemplate.HARVEY_COLORS) {
             colors.add(c);
         }
         dataSet.setColors(colors);
@@ -230,13 +237,13 @@ public class DayActivity extends Activity implements OnChartValueSelectedListene
 
 //        String user_id = RegistrationManager.getUserId();
 //        String user_id = "100003"; can quary the buddy id from Supervison
-        UtilLog.logWithCodeInfo("Valid user id is "+ chart_user_id, "setBarData", "DayActivity");
+        UtilLog.logWithCodeInfo("Valid user id is " + chart_user_id, "setBarData", "DayActivity");
         List<AppUsage> ret = AppUsageManager.get_app_duration_day(chart_user_id, TimeFormat.Now());
 
         if (ret != null && ret.size() > 0) {
-            for(int i = 0; i<ret.size(); i++) {
+            for (int i = 0; i < ret.size(); i++) {
                 xVals.add(ret.get(i).getApp_name());
-                float duration = ret.get(i).getDuration() /60.0f;
+                float duration = ret.get(i).getDuration() / 60.0f;
                 yVals1.add(new BarEntry(duration, i));
             }
         } /*else { //默认数据
@@ -249,7 +256,7 @@ public class DayActivity extends Activity implements OnChartValueSelectedListene
                 float val = (float) (Math.random() * mult);
                 yVals1.add(new BarEntry(val, i));
             }
-        }*/else {
+        }*/ else {
             return;
         }
 
@@ -258,7 +265,7 @@ public class DayActivity extends Activity implements OnChartValueSelectedListene
 //        l.setFormSize(12f);
 //        l.setXEntrySpace(4f);
 
-        String bardiscription = getResources().getString(R.string.day_bar_discript);
+        String bardiscription = getResources().getString(R.string.day_bar_discript, Config.APP_COUNT());
         BarDataSet set1 = new BarDataSet(yVals1, bardiscription);
         set1.setBarSpacePercent(35f);
         set1.setColors(ColorTemplate.HARVEY_COLORS);
@@ -277,9 +284,9 @@ public class DayActivity extends Activity implements OnChartValueSelectedListene
 
     protected void onResume() {
         super.onResume();
-        chart_user_id =  this.getIntent().getStringExtra(App.KEY_FAMILY2DAY_USERID);
-        UtilLog.logWithCodeInfo("Contacts user id is "+ chart_user_id, "onResume", "DayActivity");
-        if (chart_user_id ==null || chart_user_id.equals("")){
+        chart_user_id = this.getIntent().getStringExtra(App.KEY_FAMILY2DAY_USERID);
+        UtilLog.logWithCodeInfo("Contacts user id is " + chart_user_id, "onResume", "DayActivity");
+        if (chart_user_id == null || chart_user_id.equals("")) {
             chart_user_id = RegistrationManager.getUserId();
         }
         initBarChart();
@@ -311,7 +318,9 @@ public class DayActivity extends Activity implements OnChartValueSelectedListene
 
     public void onNothingSelected() {
         Log.i("harvey", "no nothing selected");
-    };
+    }
+
+    ;
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

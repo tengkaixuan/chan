@@ -37,13 +37,16 @@ public class JieconDBHelper extends SQLiteOpenHelper {
 
     public final static int HAS_ALARM = 310;
     public final static int HAS_LOCK = 311;
-    public final static int ACCESSIBILITY_SERVICE = 312;
+
 
 
     public final static int NOTIFICATION_USR_ID = 400;
     public final static int NOTIFICATION_NAME = 401;
     public final static int NOTIFICATION_PHONE = 402;
 
+
+    public final static int PEEK_TIME = 501;
+    public final static int APP_COUNT = 502;
 
     public static SQLiteDatabase getDb() {
         JieconDBHelper dbHelp = new JieconDBHelper(App.getAppContext());
@@ -62,11 +65,11 @@ public class JieconDBHelper extends SQLiteOpenHelper {
                     + " (day BIGINT unsigned not null, app_pkgname text  not null  ,app_name text not null,duration integer,times integer, primary key(day,app_pkgname));");
 
             db.execSQL("CREATE TABLE  app_history "
-                    + " (id INTEGER   primary key AUTOINCREMENT,app_pkgname text not null ,app_name text not null ,start_time BIGINT unsigned ,end_time BIGINT unsigned ,uploaded tinyint(1) DEFAULT 0, CONSTRAINT uk_app_time unique(app_pkgname,start_time));");
+                    + " (id INTEGER   primary key AUTOINCREMENT,app_pkgname text not null ,app_name text not null ,start_time BIGINT unsigned ,end_time BIGINT unsigned, uploaded tinyint(1) DEFAULT 0, CONSTRAINT uk_app_time unique(app_pkgname,start_time));");
 
             db.execSQL("CREATE TABLE  config  (key int unsigned not null ,value text);");
 
-            db.execSQL("CREATE TABLE  relation_list (seq BIGINT unsigned ,user_id text ,name text,phone text, role INTEGER,time INTEGER,status INTEGER,msg text,read_flag INTEGER，type INTEGER);");
+            db.execSQL("CREATE TABLE  relation_list (seq BIGINT unsigned ,user_id text ,name text,phone text, role INTEGER,time INTEGER,status INTEGER,msg text,read_flag INTEGER,type INTEGER);");
 
             db.execSQL("CREATE TABLE  filter_app "
                     + " (id INTEGER   primary key AUTOINCREMENT,app_pkgname text not null ,level BIGINT unsigned , CONSTRAINT uk_app_pkgname unique(app_pkgname));");

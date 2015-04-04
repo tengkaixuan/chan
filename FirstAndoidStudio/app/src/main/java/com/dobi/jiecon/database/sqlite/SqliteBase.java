@@ -11,6 +11,7 @@ import com.dobi.jiecon.data.RelationData;
 import com.dobi.jiecon.database.AppUsage;
 import com.dobi.jiecon.database.AppUsageOrg;
 import com.dobi.jiecon.database.JieconDBHelper;
+import com.dobi.jiecon.utils.Config;
 import com.dobi.jiecon.utils.TimeFormat;
 
 
@@ -429,19 +430,14 @@ public class SqliteBase {
 
             rs.moveToFirst();
             AppUsage app = null;
+
             for (int i = 0; i < rs.getCount(); i++) {
-                if (i < 11) {
-                    app = new AppUsage();
-                    app.setApp_pkgname(rs.getString(0));
-                    app.setApp_name(rs.getString(1));
-                    app.setDuration(rs.getLong(2));
-                    app.setTimes(rs.getLong(3));
-                    retList.add(app);
-                } else {
-                    app.setApp_pkgname("others");
-                    app.setDuration(app.getDuration() + rs.getLong(1));
-                    app.setTimes(app.getTimes() + rs.getLong(2));
-                }
+                app = new AppUsage();
+                app.setApp_pkgname(rs.getString(0));
+                app.setApp_name(rs.getString(1));
+                app.setDuration(rs.getLong(2));
+                app.setTimes(rs.getLong(3));
+                retList.add(app);
                 rs.moveToNext();
 
             }
@@ -499,8 +495,8 @@ public class SqliteBase {
                 realCount = rs.getCount();
             }
             String[] pkgNameArgs = new String[realCount + 6];
-
-            for (int i = 0; i < rs.getCount() && i < 10; i++) {
+            int app_count = Config.APP_COUNT();
+            for (int i = 0; i < rs.getCount() && i < app_count; i++) {
 
                 app = new AppUsage();
                 app.setApp_pkgname(rs.getString(0));
@@ -612,7 +608,8 @@ public class SqliteBase {
 
             rs.moveToFirst();
             AppUsage app = null;
-            for (int i = 0; i < rs.getCount() && i < 10; i++) {
+            int app_count = Config.APP_COUNT();
+            for (int i = 0; i < rs.getCount() && i < app_count; i++) {
 
                 app = new AppUsage();
                 app.setApp_pkgname(rs.getString(0));
@@ -1109,9 +1106,9 @@ public class SqliteBase {
             if (null != query_family(db, phone)) {
                 UtilLog.logWithCodeInfo("Update family info", "update_add_unilateral_family", "SqliteBase");
                 ContentValues values = new ContentValues();
-                if (!friend.getName().equals(""))
+                if (friend.getName()!=null || !friend.getName().equals(""))
                     values.put("name", friend.getName());
-                if (!friend.getUser_id().equals(""))
+                if (null != friend.getUser_id() || !friend.getUser_id().equals(""))
                     values.put("user_id", friend.getUser_id());
 
                 String whereClause = "phone = ?";
@@ -1153,6 +1150,13 @@ public class SqliteBase {
 
     public static FamilyMember get_unilateral_friend(String phone) {
         return friend_is_existing(phone);
+    }
+    public static boolean update_usrid_by_phone(String phone, String usrid) {
+        FamilyMember m = get_unilateral_friend(phone);
+        if (m !=null){
+            m.setUser_id(usrid);
+        }
+       return update_add_unilateral_family(m);
     }
 
     private static Map<String, Long> _filter_map = null;

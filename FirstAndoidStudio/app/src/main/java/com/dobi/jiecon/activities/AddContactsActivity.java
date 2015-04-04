@@ -139,30 +139,29 @@ public class AddContactsActivity extends Activity {
 
         if (null != SqliteBase.friend_is_existing(item.getPhone())) {
 
-            UtilLog.logWithCodeInfo("Phone is existing in sqlite " + item.getPhone(), "addContactOnClickHandler", "AddContactsActivity");
+            UtilLog.logWithCodeInfo("[PROGRESS]Phone " + item.getPhone() + "is existing in sqlite ", "addContactOnClickHandler", "AddContactsActivity");
             Intent intent = new Intent(this, SupervisionDetailsActivity.class);
             intent.putExtra(App.KEY_CURRENT_USR_NAME, name);
             intent.putExtra(App.KEY_CURRENT_USR_PHONE, phone);
             intent.putExtra(App.KEY_FROM_CXT, App.ID_FAMILY_LIST_ADAPTER);
             startActivity(intent);
         } else {
-            UtilLog.logWithCodeInfo("Phone does not exist in sqlite " + phone, "addContactOnClickHandler", "AddContactsActivity");
+            UtilLog.logWithCodeInfo("[PROGRESS]Phone " + item.getPhone() + " does not exist in sqlite " + phone, "addContactOnClickHandler", "AddContactsActivity");
             DialogBuilderMgr.CreateAlertDialog(
                     this,
                     getString(R.string.family_add_buddy),
                     new IAlarmDialog() {
                         @Override
                         public void consume() {
-                            if (false == SupervisionManager.add_family(name, phone)) {
-                                UtilLog.logWithCodeInfo("Add family return false", "addContactOnClickHandler", "AddContactsActivity");
-                            } else {
-                                SupervisionManager.update_user_id_by_phone_async(phone);
-                                Intent intent = new Intent(thisActivity, SupervisionDetailsActivity.class);
-                                intent.putExtra(App.KEY_CURRENT_USR_NAME, name);
-                                intent.putExtra(App.KEY_CURRENT_USR_PHONE, phone);
-                                intent.putExtra(App.KEY_FROM_CXT, App.ID_FAMILY_LIST_ADAPTER);
-                                startActivity(intent);
-                            }
+                            UtilLog.logWithCodeInfo("[PROGRESS]Add contacts to family by phone " + phone, "addContactOnClickHandler", "AddContactsActivity");
+                            SupervisionManager.add_family_async(name, phone);
+                            SupervisionManager.update_user_id_by_phone_async(phone);
+//                                Intent intent = new Intent(thisActivity, SupervisionDetailsActivity.class);
+                            Intent intent = new Intent(thisActivity, FriendActivity.class);
+                            intent.putExtra(App.KEY_CURRENT_USR_NAME, name);
+                            intent.putExtra(App.KEY_CURRENT_USR_PHONE, phone);
+                            intent.putExtra(App.KEY_FROM_CXT, App.ID_FAMILY_LIST_ADAPTER);
+                            startActivity(intent);
                         }
                     },
                     new IAlarmDialog() {

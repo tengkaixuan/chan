@@ -21,6 +21,7 @@ import com.dobi.jiecon.database.AppUsage;
 import com.dobi.jiecon.database.json.IJsonCallback;
 import com.dobi.jiecon.datacontroller.AppUsageManager;
 import com.dobi.jiecon.datacontroller.RegistrationManager;
+import com.dobi.jiecon.utils.Config;
 import com.dobi.jiecon.utils.MathCalculate;
 import com.dobi.jiecon.utils.TimeFormat;
 import com.github.mikephil.charting.MyValueFormatter;
@@ -248,7 +249,7 @@ public class BuddyDayActivity extends Activity implements OnChartValueSelectedLi
         // add a selection listener
 //        mPieChart.setOnChartValueSelectedListener(this);
         // mChart.setTouchEnabled(false);
-        String daypiecenter = getResources().getString(R.string.day_pie_center);
+        String daypiecenter = getResources().getString(R.string.day_pie_center, Config.APP_COUNT());
         mPieChart.setCenterText(daypiecenter);
         mPieChart.setCenterTextColor(Color.WHITE);
         mPieChart.setCenterTextSize(18f);
@@ -285,7 +286,7 @@ public class BuddyDayActivity extends Activity implements OnChartValueSelectedLi
             xVals.add(mParties[i % mParties.length]);
         }
 
-        String discript = getResources().getString(R.string.day_app_percent);
+        String discript = getResources().getString(R.string.day_app_percent, Config.APP_COUNT());
         PieDataSet dataSet = new PieDataSet(yVals1, discript);
         dataSet.setSliceSpace(3f);
 
@@ -331,7 +332,7 @@ public class BuddyDayActivity extends Activity implements OnChartValueSelectedLi
             float f_duration = MathCalculate.float2float(percent, 2);
             yVals1.add(new BarEntry(f_duration, i));
         }
-        String discript = getResources().getString(R.string.day_app_percent);
+        String discript = getResources().getString(R.string.day_app_percent, Config.APP_COUNT());
         PieDataSet dataSet = new PieDataSet(yVals1, discript);
         dataSet.setSliceSpace(3f);
 
@@ -387,7 +388,7 @@ public class BuddyDayActivity extends Activity implements OnChartValueSelectedLi
             }
         }
 
-        String discript = getResources().getString(R.string.day_app_percent);
+        String discript = getResources().getString(R.string.day_app_percent, Config.APP_COUNT());
         PieDataSet dataSet = new PieDataSet(yVals1, discript);
         dataSet.setSliceSpace(3f);
 
@@ -489,7 +490,7 @@ public class BuddyDayActivity extends Activity implements OnChartValueSelectedLi
             float duration = appList.get(i).getDuration() / 60.0f;
             yVals1.add(new BarEntry(duration, i));
         }
-        String bardiscription = getResources().getString(R.string.day_bar_discript);
+        String bardiscription = getResources().getString(R.string.day_bar_discript, Config.APP_COUNT());
         BarDataSet set1 = new BarDataSet(yVals1, bardiscription);
 
         set1.setBarSpacePercent(35f);
@@ -534,7 +535,7 @@ public class BuddyDayActivity extends Activity implements OnChartValueSelectedLi
             }
         }
 
-        String bardiscription = getResources().getString(R.string.day_bar_discript);
+        String bardiscription = getResources().getString(R.string.day_bar_discript, Config.APP_COUNT());
         BarDataSet set1 = new BarDataSet(yVals1, bardiscription);
         set1.setBarSpacePercent(35f);
         set1.setColors(ColorTemplate.HARVEY_COLORS);

@@ -296,26 +296,26 @@ public class SupervisionDetailsActivity extends Activity implements IJsonCallbac
             final String son_id = contacts_id;
             String msg = String.format(getString(R.string.family_lock_who), contacts_name);
             DialogBuilderMgr.CreateAlertDialog(
-                cxt,
-                msg,
-                new IAlarmDialog() {
-                    @Override
-                    public void consume() {
-                        if (true == SupervisionManager.lock_son(father_id, son_id)) {
-                            UtilLog.showToast(cxt, getString(R.string.family_lock_success), Toast.LENGTH_LONG);
-                        } else {
-                            UtilLog.showToast(cxt, getString(R.string.family_lock_failed), Toast.LENGTH_LONG);
+                    cxt,
+                    msg,
+                    new IAlarmDialog() {
+                        @Override
+                        public void consume() {
+                            if (true == SupervisionManager.lock_son(father_id, son_id)) {
+                                UtilLog.showToast(cxt, getString(R.string.family_lock_success), Toast.LENGTH_LONG);
+                            } else {
+                                UtilLog.showToast(cxt, getString(R.string.family_lock_failed), Toast.LENGTH_LONG);
+                            }
                         }
-                    }
-                },
+                    },
 
-                new IAlarmDialog() {
-                    @Override
-                    public void consume() {
-                        return;
-                    }
-                },
-                null);
+                    new IAlarmDialog() {
+                        @Override
+                        public void consume() {
+                            return;
+                        }
+                    },
+                    null);
 
         }
     };
@@ -424,7 +424,7 @@ public class SupervisionDetailsActivity extends Activity implements IJsonCallbac
     }
 
     private void hideAllActions() {
-        if(isFirstVersion) {
+        if (isFirstVersion) {
             v_btn_both_request_supervision.setVisibility(View.GONE);
             v_btn_son_request_cancel_supervision.setVisibility(View.GONE);
             v_btn_son_request_unlock.setVisibility(View.GONE);
@@ -466,7 +466,7 @@ public class SupervisionDetailsActivity extends Activity implements IJsonCallbac
         if (contacts_relation == RelationData.RELATION_SUPERVISION_NO) {
             v_contact_role.setText(getString(R.string.family_friend));
             v_btn_both_request_supervision.setOnClickListener(Request_Supervision_Listener);
-            if(!isFirstVersion)v_btn_both_request_supervision.setVisibility(View.VISIBLE);
+            if (!isFirstVersion) v_btn_both_request_supervision.setVisibility(View.VISIBLE);
             v_contact_status.setVisibility(View.GONE);
         } else if (contacts_relation == RelationData.RELATION_SUPERVISION_YES) {
             v_contact_role.setText(role2Str(contacts_role));
@@ -604,7 +604,7 @@ public class SupervisionDetailsActivity extends Activity implements IJsonCallbac
 
     private void showSonActions(boolean both_action_1, boolean action_2, boolean action_3) {
         if (both_action_1) {
-            if(!isFirstVersion)v_btn_both_request_supervision.setVisibility(View.VISIBLE);
+            if (!isFirstVersion) v_btn_both_request_supervision.setVisibility(View.VISIBLE);
         } else {
             v_btn_both_request_supervision.setVisibility(View.GONE);
         }
@@ -622,7 +622,7 @@ public class SupervisionDetailsActivity extends Activity implements IJsonCallbac
 
     private void showFatherActions(boolean both_action_1, boolean action_2, boolean action_3) {
         if (both_action_1) {
-            if(!isFirstVersion)v_btn_both_request_supervision.setVisibility(View.VISIBLE);
+            if (!isFirstVersion) v_btn_both_request_supervision.setVisibility(View.VISIBLE);
         } else {
             v_btn_both_request_supervision.setVisibility(View.GONE);
         }
@@ -683,31 +683,31 @@ public class SupervisionDetailsActivity extends Activity implements IJsonCallbac
                 final String son_id_3 = contacts_id;
                 String msg1 = String.format(getString(R.string.family_apply_unlock_who), contacts_name);
                 DialogBuilderMgr.CreateAgreeDialog(
-                    cxt,
-                    msg1,
-                    new IAlarmDialog() {
-                        @Override
-                        public void consume() {
-                            new Thread(new Runnable() {
-                                @Override
-                                public void run() {
-                                    if (true == SupervisionManager.agree_request_unlock(father_id_3, son_id_3, 60 * 60 * 24, "")) {
-                                        UtilLog.showToast(cxt, contacts_name + getString(R.string.status_31_label), Toast.LENGTH_LONG);
+                        cxt,
+                        msg1,
+                        new IAlarmDialog() {
+                            @Override
+                            public void consume() {
+                                new Thread(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        if (true == SupervisionManager.agree_request_unlock(father_id_3, son_id_3, 60 * 60 * 24, "")) {
+                                            UtilLog.showToast(cxt, contacts_name + getString(R.string.status_31_label), Toast.LENGTH_LONG);
+                                        }
                                     }
-                                }
-                            }).start();
-                        }
-                    },
-
-                    new IAlarmDialog() {
-                        @Override
-                        public void consume() {
-                            if (true == SupervisionManager.disagree_request_unlock(father_id_3, son_id_3, "")) {
-                                UtilLog.showToast(cxt, contacts_name + getString(R.string.status_32_label), Toast.LENGTH_LONG);
+                                }).start();
                             }
-                        }
-                    },
-                    null).show();
+                        },
+
+                        new IAlarmDialog() {
+                            @Override
+                            public void consume() {
+                                if (true == SupervisionManager.disagree_request_unlock(father_id_3, son_id_3, "")) {
+                                    UtilLog.showToast(cxt, contacts_name + getString(R.string.status_32_label), Toast.LENGTH_LONG);
+                                }
+                            }
+                        },
+                        null).show();
                 break;
         }
     }

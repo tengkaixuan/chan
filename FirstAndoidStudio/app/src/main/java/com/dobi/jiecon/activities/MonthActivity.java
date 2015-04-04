@@ -15,6 +15,7 @@ import com.dobi.jiecon.R;
 import com.dobi.jiecon.UtilLog;
 import com.dobi.jiecon.database.AppUsage;
 import com.dobi.jiecon.datacontroller.AppUsageManager;
+import com.dobi.jiecon.utils.Common;
 import com.dobi.jiecon.utils.MathCalculate;
 import com.dobi.jiecon.utils.TimeFormat;
 import com.github.mikephil.charting.charts.BarChartItem;
@@ -62,7 +63,7 @@ public class MonthActivity extends Activity {
 
             AppUsage app_item = retList.get(i);
             String package_name = app_item.getApp_pkgname();
-            String app_name = app_item.getApp_name();
+            String app_name =  Common.getAppName(this,app_item);
 
             list.add(new LineChartItem(generateDataLineByApp(allData.get(package_name), app_name, today), getApplicationContext()));
             list.add(new BarChartItem(generateDataBarByApp(allData.get(package_name), app_name, today), getApplicationContext()));

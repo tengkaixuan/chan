@@ -173,7 +173,7 @@ public class AppUsageManager {
         new Thread(new Runnable() {
             @Override
             public void run() {
-                UtilLog.logWithCodeInfo("usrid is "+ user_id, "get_app_duration_day_async", "AppUsageManager");
+                UtilLog.logWithCodeInfo("usrid is " + user_id, "get_app_duration_day_async", "AppUsageManager");
                 cbk.refreshData(App.GET_APP_DURATION_DAY, get_app_duration_day(user_id, start_day));
             }
         }
@@ -214,7 +214,7 @@ public class AppUsageManager {
      * @return
      */
     static private List<AppUsage> getAppUsage(String user_id, boolean by_day, long start_time, long end_time) {
-        if(user_id == null) {
+        if (user_id == null) {
             return null;
         }
         List<AppUsage> v = _data_day.get(start_time);
@@ -268,6 +268,21 @@ public class AppUsageManager {
             UtilLog.logWithCodeInfo(user_id + " is a contact user id", "getAppUsage", "AppUsageManager");
             v = get_contacts_app_usage_by_day(user_id, start_time, end_time);
         }
+        int app_count = Config.APP_COUNT();
+        AppUsage app = null;
+        for (int i = app_count; i < v.size(); i++) {
+            if (i == app_count) {
+                app = v.get(i);
+                app.setApp_pkgname("others");
+                app.setApp_name("others");
+            } else {
+                AppUsage app_next = v.get(app_count + 1);
+                app.setDuration(app.getDuration() + app_next.getDuration());
+                app.setTimes(app.getTimes() + app_next.getTimes());
+                v.remove(app_count + 1);
+            }
+        }
+
         return v;
     }
 

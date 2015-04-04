@@ -28,7 +28,7 @@ public class UtilLog {
     public static final String advMidiType = "21";
     public static final String advYoumitype = "4";
     public static final String snsInvateCode = "1008";
-    private static final boolean DEBUG = false;
+    private static final boolean DEBUG = true;
     private static Context ctx;
     private static String msg;
     private static int duration;

@@ -5,6 +5,7 @@ import android.app.admin.DevicePolicyManager;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 
 import com.dobi.jiecon.App;
 import com.dobi.jiecon.UtilLog;
@@ -18,6 +19,7 @@ import com.dobi.jiecon.database.sqlite.SqliteBase;
 import com.dobi.jiecon.service.LockReceiver;
 import com.dobi.jiecon.utils.DebugControl;
 
+import java.sql.Statement;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -45,12 +47,15 @@ public class SupervisionManager {
         if (ret == null) {
             HashMap<String, Object> retHashMap = JsonManager.get_user_id_by_phone(phone);
             if ("0".equals(retHashMap.get("k0"))) {
-                ret = (String) retHashMap.get("k2");
+                String usrid = (String) retHashMap.get("k2");
+                if (null != usrid && !"".equals(usrid)) {
+                    SqliteBase.update_usrid_by_phone(phone, usrid);
+                }
+                ret = usrid;
             } else {
                 UtilLog.logWithCodeInfo("Failed to get usrid by phone = " + phone, "get_user_id_by_phone", "SupervisionManager");
             }
         }
-
         return ret;
     }
 
@@ -62,7 +67,9 @@ public class SupervisionManager {
         new Thread(new Runnable() {
             @Override
             public void run() {
-                cbk.refreshData(App.ID_GET_USER_BY_PHONE, get_user_id_by_phone(phone));
+                String usrid = get_user_id_by_phone(phone);
+                if (cbk != null)
+                    cbk.refreshData(App.ID_GET_USER_BY_PHONE, usrid);
             }
         }).start();
     }
@@ -85,9 +92,10 @@ public class SupervisionManager {
                         fm.setPhone(phone);
                         fm.setUser_id(usrid);
                         SqliteBase.update_add_unilateral_family(fm);
+                        UtilLog.logWithCodeInfo("[PROGRESS] Update usrid to sqlite " +usrid, "update_user_id_by_phone_async", "SupervisionManager");
                     }
                 } else {
-                    UtilLog.logWithCodeInfo("Failed to get usrid by phone = " + phone, "update_user_id_by_phone_async", "SupervisionManager");
+                    UtilLog.logWithCodeInfo("[PROGRESS] Failed to get usrid by phone = " + phone, "update_user_id_by_phone_async", "SupervisionManager");
                 }
             }
         }).start();
@@ -161,8 +169,10 @@ public class SupervisionManager {
     }
 
     static public boolean agree_supervision_request_with_activity(Activity cxt, String father_userid, String son_userid, String msg) {
-        if (!get_lock_screen_policy(cxt)) {
-            return false;
+        if (false == DebugControl.DEBUG_FLAG) {
+            if (!get_lock_screen_policy(cxt)) {
+                return false;
+            }
         }
         return Supervision_Notify(father_userid, son_userid, RelationData.RELATION_SON_AGREE_SUPERVISION, 0, msg);
     }
@@ -226,7 +236,14 @@ public class SupervisionManager {
         }
         return;
     }
-
+    static public void update_relation_list_async(final Activity context, final String user_id, final int type){
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                update_relation_list(context, user_id, type);
+            }
+        }).start();
+    }
     static public List<FamilyMember> get_families() {
         List<FamilyMember> ret = null;
         ret = SqliteBase.get_unilateral_families();
@@ -234,6 +251,11 @@ public class SupervisionManager {
             HashMap<String, Object> retHashMap = JsonManager.get_family_list(RegistrationManager.getUserId());
             if (retHashMap != null && retHashMap.get("k0").equals("0")) {
                 ret = (List<FamilyMember>) retHashMap.get("k2");
+                if (ret != null) {
+                    for (FamilyMember m : ret) {
+                        SqliteBase.update_add_unilateral_family(m);
+                    }
+                }
             }
         }
         return ret;
@@ -241,6 +263,28 @@ public class SupervisionManager {
 
     static public List<RelationData> get_individual_list(String user_id) {
         return SqliteBase.get_individual_relation_list(user_id);
+    }
+
+    static public int get_individual_relation(String user_id) {
+        int ret = RelationData.RELATION_ROLE_FRIEND;
+        List<RelationData> contacts = SqliteBase.get_individual_relation_list(user_id);
+        if (contacts != null) {
+            for (RelationData item : contacts) {
+                if (item.getStatus() == RelationData.RELATION_SUPERVISION_NO) {
+                    break;
+                }
+                if (RelationData.RELATION_ROLE_SON == item.getRole()) {
+                    ret = RelationData.RELATION_ROLE_SON;
+                    break;
+                }
+                if (RelationData.RELATION_ROLE_FATHER == item.getRole()) {
+                    ret = RelationData.RELATION_ROLE_FATHER;
+                    break;
+                }
+            }
+        }
+        return ret;
+
     }
 
     static public boolean checkJiejieMemberByPhone(String phone) {
@@ -255,29 +299,30 @@ public class SupervisionManager {
         boolean ret = false;
         UtilLog.logWithCodeInfo("Parameter phone = " + phone, "add_family", "SupervisionManager");
         UtilLog.logWithCodeInfo("parameter name = " + name, "add_family", "SupervisionManager");
+        FamilyMember member = new FamilyMember();
+        member.setName(name);
+        member.setPhone(phone);
+        SqliteBase.update_add_unilateral_family(member);
+        UtilLog.logWithCodeInfo("[PROGRESS]Added contacts to Sqlite", "add_family", "SupervisionManager");
         HashMap<String, Object> retHashMap = JsonManager.add_family(RegistrationManager.getUserId(), phone, name);
         if ((retHashMap != null) && "0".equals(retHashMap.get("k0"))) {
-            FamilyMember member = new FamilyMember();
-            member.setName(name);
-            member.setPhone(phone);
-            UtilLog.logWithCodeInfo("Start add family to sqlite", "add_family", "SupervisionManager");
-            UtilLog.logWithCodeInfo("Phone = " + member.getPhone(), "add_family", "SupervisionManager");
-            UtilLog.logWithCodeInfo("Name = " + member.getName(), "add_family", "SupervisionManager");
-            ret = SqliteBase.update_add_unilateral_family(member);
+            ret = true;
         } else {
-            UtilLog.logWithCodeInfo("JsonManager.add_family return fail", "add_family", "SupervisionManager");
+            UtilLog.logWithCodeInfo("[PROGRESS]JsonManager.add_family return fail", "add_family", "SupervisionManager");
         }
         return ret;
     }
+
     static public void add_family_async(final String name, final String phone) {
         new Thread(new Runnable() {
             @Override
             public void run() {
-                add_family(name,phone);
+                add_family(name, phone);
             }
         }
         ).start();
     }
+
     public static boolean setContactName(String contact_id, String name) {
         HashMap<String, Object> retHashMap = JsonManager.update_nickname(contact_id, name);
         if (retHashMap != null && "0".equals(retHashMap.get("k0"))) {
@@ -286,6 +331,7 @@ public class SupervisionManager {
             return false;
         }
     }
+
     public static void setContactNameAsync(final String contact_id, final String name) {
         new Thread(new Runnable() {
             @Override
@@ -294,6 +340,7 @@ public class SupervisionManager {
             }
         }).start();
     }
+
     static public boolean add_friend(String userid, List<String> userList) {
         HashMap<String, Object> retHashMap = JsonManager.add_friend(userid, userList);
         if ("0".equals(retHashMap.get("k0"))) {
@@ -303,15 +350,18 @@ public class SupervisionManager {
             return false;
         }
     }
-    static public void add_friend_async(final  String userid, final List<String> userList, final IJsonCallback cbk) {
+
+    static public void add_friend_async(final String userid, final List<String> userList, final IJsonCallback cbk) {
         new Thread(new Runnable() {
             @Override
             public void run() {
-                boolean ret = add_friend(userid,userList);
-                cbk.refreshData(App.ID_ADD_FRIEND, ret);
+                boolean ret = add_friend(userid, userList);
+                if (cbk != null)
+                    cbk.refreshData(App.ID_ADD_FRIEND, ret);
             }
         }).start();
     }
+
     static public boolean send_request_read_flag(long seq) {
         HashMap<String, Object> retHashMap = JsonManager.send_request_read_flag(seq);
         if ("0".equals(retHashMap.get("k0"))) {

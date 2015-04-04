@@ -131,9 +131,9 @@
     <string name="EnterPassword">Input password</string>
     <string name="title_activity_signup">SignupActivity</string>
     <string name="monitor_daily">Watch today data</string>
-    <string name="day_app_percent">Top 10 to total time ratio</string>
-    <string name="day_bar_discript">Top 10 app used</string>
-    <string name="day_pie_center">Each in top 10\n to total time ratio</string>
+    <string name="day_app_percent">Top %1$d to total time ratio</string>
+    <string name="day_bar_discript">Top %1$d app used</string>
+    <string name="day_pie_center">Each in top %1$d\n to total time ratio</string>
     <string name="day_pie_descript">DOBI Inc product.</string>
     <string name="setting_change_phone">Change cell phone number(Current: %s)</string>
     <string name="setting_binding_phone">Input cell phone number:</string>
@@ -143,6 +143,7 @@
     <string name="setting_nickname_hint">Hint</string>
     <string name="setting_nickname_modify_success">Success</string>
     <string name="setting_nickname_modify_failed"> Failed</string>
+    <string name="setting_userid_label">User id(current: %s )</string>
     <string name="setting_nickname_label">Nickname(current: %s )</string>
     <string name="setting_start_monitor">Accessibility(Open)</string>
     <string name="setting_stop_monitor">Accessibility(Closed)</string>
@@ -193,8 +194,8 @@ THEREFORE, this Privacy Policy Agreement shall apply to Dobi Technology Co.,Ltd.
     <string name="setting_help">Help</string>
     <string name="prompt_usr">Username/Phone number</string>
     <string name="prompt_password">Password</string>
-    <string name="action_sign_in">Sing in</string>
-    <string name="action_sign_up">Sing up</string>
+    <string name="action_sign_in">Sign in</string>
+    <string name="action_sign_up">Sign up</string>
     <string name="action_create_count">Create account</string>
     <string name="prompt_phone_number_confirmation">Confirm phone number</string>
     <string name="sms_authentication_code_info">Your validation</string>
@@ -214,43 +215,43 @@ THEREFORE, this Privacy Policy Agreement shall apply to Dobi Technology Co.,Ltd.
 
     <string name="HtmlHelpData">
     <h1><font size="24">Help</font></h1> \n
-    <font size="18"><b><li>Q:Why it is black on Today and Month？</li></b></font>\n
-    <font size="16">A:Make sure you have open accessibility. Open Jiejie->Setting->Accessibility->On。</font>\n\n
+    <font size="18"><b><li>Q: Why \"Today\" and \"Month\" is disabled?</li></b></font>\n
+    <font size="16">A:Make sure you have turned on \"Jiejie\". Select Jiejie->Setting->Accessibility->On</font>\n\n
 
-    <font size="18"><b><li>Q:Can I large the Today or Month to see clear?</li></b></font>\n
-    <font size="16">A:Yes, you can use your tow fingers to zoom bigger or smaller.</font>\n\n
+    <font size="18"><b><li>Q: Can I enlarge Today or Month to see clearly?</li></b></font>\n
+    <font size="16">A:Yes. You could use your two fingers to zoom in and out.</font>\n\n
 
-    <font size="18"><b><li>Q:Why should I activate device？</li></b></font>\n
-    <font size="16">A:When you setting times for yourself, then you use phone out of time limited, it can lock for you.</font>\n\n
+    <font size="18"><b><li>Q:Q: Why should I activate device for myself?</li></b></font>\n
+    <font size="16">A:If you set time limits for yourself, and if you use your cellphone out of time, it could lock the cellphone for you.</font>\n\n
 
     <font size="18"><b><li>Q:How can I uninstall Jiejie？</li></b></font>\n
-    <font size="16">A:Go home, then open Settings->Security->Device administrators，uncheck Jiejie. Now you can uninstall it.</font>\n\n
+    <font size="16">A:Go to "Home", select  Settings->Security->Device administrators, and now you could uninstall \"Jiejie\".</font>\n\n
 
-    <font size="18"><b><li>Q:How long Jiejie make statistic？</li></b></font>\n
-    <font size="16">A:Half minute.</font>\n\n
+    <font size="18"><b><li>Q:How often does \"Jiejie\" make statistics?</li></b></font>\n
+    <font size="16">A:Every half a minute..</font>\n\n
 
-    <font size="18"><b><li>Q:Why apps can how in Today but it disappear on Month？</li></b></font>\n
-    <font size="16">A:It only show the top 10 app on both Today and Month. If it did not show on Month but shows in Today, it means out of top 10 in Month</font>\n\n
+    <font size="18"><b><li>Q:Why some apps show in "Today" but not in "Month"？</li></b></font>\n
+    <font size="16">A:It only shows the top 10 apps mostly used in today and this month. If certain app does not show in \"Today\" but shows in \"Month\", it means this app is out of the top 10 in terms of month.</font>\n\n
 
-    <font size="18"><b><li>Q:Why some apps can not show in Today？</li></b></font>\n
-    <font size="16">A:Like the above question, It can only show top 10 apps</font>\n\n
+    <font size="18"><b><li>Q:Why some apps cannot show in \"Today\"</li></b></font>\n
+    <font size="16">A:As in above, it only shows the top 10 mostly used apps.</font>\n\n
 
-    <font size="18"><b><li>Q:Why I can not see family buddy data？</li></b></font>\n
-    <font size="16">A:Because your buddy have not install Jiejie or buddy have not binding the correct phone number.</font>\n\n
+    <font size="18"><b><li>Q:Why I can not see my family member data？</li></b></font>\n
+    <font size="16">A:Because your family has not installed \"Jiejie\", or he does not bind his cellphone number to yours correctly.</font>\n\n
 
-    <font size="18"><b><li>Q:Why I can see only today with my buddy?</li></b></font>\n
-    <font size="16">A:This version can only see one day for buddy.</font>\n\n
+    <font size="18"><b><li>Q:Why I can see only \"Today\" for my family member?</li></b></font>\n
+    <font size="16">A:This version can only see \"Today\".</font>\n\n
 
-    <font size="18"><b><li>Q:Why I can not monitor my buddy?</li></b></font>\n
-    <font size="16">A:1.You buddy did not yet install the Jiejie；2.Your buddy did not binding their phone number correctly.</font>\n\n
+    <font size="18"><b><li>Q:Why I cannot monitor my family member?</li></b></font>\n
+    <font size="16">A:Your family has not yet installed \"Jiejie\", or he does not bind his cellphone number to yours correctly.</font>\n\n
 
-    <font size="18"><b><li>Q:How can i binding my phone number？</li></b></font>\n
-    <font size="16">A:Jiejie setting->Input cell phone number, then input your phone number, tap Next</font>\n\n
+    <font size="18"><b><li>Q:How can I bind cellphone numbers?</li></b></font>\n
+    <font size="16">A:Select setting->Input cell phone number, and then input your cellphone number. Click on "Next"</font>\n\n
 
-    <font size="18"><b><li>Q:What is the function on Jiejie Setting->Setting times？</li></b></font>\n
-    <font size="16">A:Setting times can lock myself phone when you use your phone out of time when you have set</font>\n\n
+    <font size="18"><b><li>Q:What is the function of Jiejie Setting->Setting times？</li></b></font>\n
+    <font size="16">A:If you set time limits, Jiejie can lock your cellphone for you if you run out of time.</font>\n\n
 
-    <font size="18"><b><li>Q:Why I can not lock by myself？</li></b></font>\n
-    <font size="16">A:After you setting times on Jiejie Setting, make sure you have checked the Lock on Exceed time item, and make sure to Activate on "Activate device administrator".</font>\n\n
+    <font size="18"><b><li>Q:Why I cannot lock my cellphone?</li></b></font>\n
+    <font size="16">A:Make sure you have checked the \"Lock\" on \"Exceed time\" item, and also make sure to select \"Activate device administrator\".</font>\n\n
 </string>
 </resources>

@@ -180,7 +180,15 @@ public class RegistrationManager {
         }
         return user_id;
     }
-
+    public static void getUserId_async(){
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                String ret = getUserId();
+            }
+        }
+        ).start();
+    }
     //Step 2: check password
     public static boolean verifyPwd(String pwd) {
         boolean ret = true;
@@ -226,7 +234,7 @@ public class RegistrationManager {
 
     //Step 4: update username
     public static boolean setName(String name) {
-        HashMap<String, Object> retHashMap = JsonManager.update_nickname(getUsrIdFromSqlite(), name);
+        HashMap<String, Object> retHashMap = JsonManager.update_username(getUsrIdFromSqlite(), name);
         if (retHashMap != null && "0".equals(retHashMap.get("k0"))) {
             setUsrNameToSqlite(name);
             return true;
@@ -234,7 +242,15 @@ public class RegistrationManager {
             return false;
         }
     }
-
+    public static boolean setNickname(String name) {
+        HashMap<String, Object> retHashMap = JsonManager.update_nickname(getUsrIdFromSqlite(), name);
+        if (retHashMap != null && "0".equals(retHashMap.get("k0"))) {
+            setNickNameToSqlite(name);
+            return true;
+        } else {
+            return false;
+        }
+    }
     /**
      * @param login_id
      * @param pwd
@@ -276,7 +292,19 @@ public class RegistrationManager {
         }
         return ret;
     }
+    static  public void binding_phone_async(final String phone, final IJsonCallback cbk){
 
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                String ret=  binding_phone(phone);
+                if (cbk!=null)
+                    cbk.refreshData(App.ID_BINDING_PHONE, ret);
+            }
+        }
+        ).start();
+
+    }
     public static boolean phoneIsBinding() {
         boolean ret = false;
         //check sqlite
@@ -286,11 +314,10 @@ public class RegistrationManager {
         } else {
             String phone = RegistrationManager.getPhoneNumber();
             if (null != phone) {
-                UtilLog.logWithCodeInfo("phone number " + phone + " is binding on server", "phoneIsBinding", "RegistrationManager");
-                UtilLog.logWithCodeInfo("phone is binding on server", "phoneIsBinding", "RegistrationManager");
+                UtilLog.logWithCodeInfo("[PROGRESS]phone number " + phone + " is binding on server", "phoneIsBinding", "RegistrationManager");
                 ret = true;
             } else {
-                UtilLog.logWithCodeInfo("phone is not binding on server", "phoneIsBinding", "RegistrationManager");
+                UtilLog.logWithCodeInfo("[PROGRESS]phone is  not binding on server", "phoneIsBinding", "RegistrationManager");
                 ret = false;
             }
         }
@@ -302,6 +329,7 @@ public class RegistrationManager {
             @Override
             public void run() {
                 boolean ret = phoneIsBinding();
+                if (cbk!=null)
                 cbk.refreshData(App.ID_CHECK_PHONE_BINDING, ret);
             }
         }
@@ -327,11 +355,19 @@ public class RegistrationManager {
         }
     }
 
+    public static final int STATISTICS_TYPE_LOGIN = 0;
+    public static final int STATISTICS_TYPE_BINDING = 1;
+    public static final int STATISTICS_TYPE_ACCESSIBILITY = 2;
+    public static final int STATISTICS_TYPE_LOCK_SETTING = 3;
+    static public void statistics(int type ) {
+        JsonManager.statistics(getUserId(), type);
+    }
+
     /**
      * @return
      */
     static public String getVersionCode() {
-        HashMap<String, Object> retHashMap = JsonManager.getVersionCode();
+        HashMap<String, Object> retHashMap = JsonManager.getServerConfig();
         if ("0".equals(retHashMap.get("k0"))) {
             return (String) retHashMap.get("k2");
         } else {

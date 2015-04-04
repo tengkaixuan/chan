@@ -8,7 +8,6 @@ import android.util.Base64;
 
 import com.dobi.jiecon.App;
 import com.dobi.jiecon.UtilLog;
-import com.dobi.jiecon.datacontroller.RegistrationManager;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -19,18 +18,23 @@ import java.util.Calendar;
  */
 public class PhoneInfo {
     public static String code = "1234";
-
+//        public static final String IMEI_FOR_TEST = "NEXUS4_00000000";
+    public static final String IMEI_FOR_TEST = "NEXUS5_00000000";
+    public static final String IMEI_EMLATOR_DEFAULT = "000000000000000";
 
     public static String getimei() {
         TelephonyManager tm = (TelephonyManager) App.getAppContext().getSystemService(Context.TELEPHONY_SERVICE);
         String memi = tm.getDeviceId();
-        UtilLog.logWithCodeInfo("Real memi is " +memi, "getimei","PhoneInfo");
+        UtilLog.logWithCodeInfo("Real memi is " + memi, "getimei", "PhoneInfo");
         if (memi == null || memi == "") {
-            UtilLog.logWithCodeInfo("Real memi is NULL", "getimei","PhoneInfo");
+            UtilLog.logWithCodeInfo("Real memi is NULL", "getimei", "PhoneInfo");
             String seed = String.valueOf(Calendar.getInstance().getTimeInMillis());
             memi = encryptTomd5(seed);
-            UtilLog.logWithCodeInfo("MD5 memi is "+memi, "getimei","PhoneInfo");
+            UtilLog.logWithCodeInfo("MD5 memi is " + memi, "getimei", "PhoneInfo");
+        } else if (memi.equals(IMEI_EMLATOR_DEFAULT)) {
+            memi = IMEI_FOR_TEST;
         }
+
         return memi;
     }
 

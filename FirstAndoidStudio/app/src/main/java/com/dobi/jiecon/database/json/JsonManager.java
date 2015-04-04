@@ -6,6 +6,8 @@ import com.dobi.jiecon.data.FamilyMember;
 import com.dobi.jiecon.data.RelationData;
 import com.dobi.jiecon.database.AppUsage;
 import com.dobi.jiecon.database.AppUsageOrg;
+import com.dobi.jiecon.database.JieconDBHelper;
+import com.dobi.jiecon.database.sqlite.SqliteBase;
 
 import org.apache.http.NameValuePair;
 import org.apache.http.message.BasicNameValuePair;
@@ -30,6 +32,7 @@ public class JsonManager {
     public static final String GET_USERS_ID_BY_PHONES = "get_users_id_by_phones.php";
     public static final String BINDING_PHONE = "binding_phone.php";
     public static final String UPDATE_NICKNAME = "update_nickname.php";
+    public static final String UPDATE_USERNAME = "update_username.php";
     public static final String INSERT_APP_INFO = "insert_app_info.php";
     public static final String GET_APP_DURATION = "get_app_duration.php";
     public static final String GET_APP_TIME = "get_app_time.php";
@@ -50,9 +53,9 @@ public class JsonManager {
     public static final String GET_FAMILY_LIST = "get_family_list.php";
 
     public static final String GET_USER_INFO_BY_USER_ID = "get_user_info_by_user_id.php";
-    public static final String GET_VERSION_CODE = "get_server_config.php";
+    public static final String GET_SERVER_CONFIG = "get_server_config.php";
 
-
+    public static final String STATISTICS = "statistics.php";
     /**
      * 下载安装后，第一次打开戒戒，获取user_id和验证码等信息
      *
@@ -259,6 +262,34 @@ public class JsonManager {
     }
 
 
+    /**
+     * 修改用户名称
+     *
+     * @param user_id
+     * @param name
+     * @return
+     */
+    static public HashMap<String, Object> update_username(String user_id, String name) {
+        HashMap<String, Object> retHashMap = new HashMap<String, Object>();
+        try {
+
+            ArrayList<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>(2);
+
+            nameValuePairs.add(new BasicNameValuePair("k0", user_id));
+            nameValuePairs.add(new BasicNameValuePair("k1", name));
+
+
+            JSONObject jsonObj = getJsonObject(UPDATE_USERNAME, nameValuePairs);
+            if (jsonObj != null) {
+                retHashMap.put("k0", getJsonString(jsonObj, "k0"));
+                retHashMap.put("k1", getJsonString(jsonObj, "k1"));
+            }
+        } catch (Exception e) {
+            retHashMap.put("k0", "1");
+            return retHashMap;
+        }
+        return retHashMap;
+    }
     /**
      * 修改用户昵称
      *
@@ -683,6 +714,22 @@ public class JsonManager {
         return retHashMap;
     }
 
+
+    static public void statistics(String user_id, int type ) {
+
+        try {
+
+            ArrayList<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>(1);
+
+            nameValuePairs.add(new BasicNameValuePair("k0", String.valueOf(user_id)));
+            nameValuePairs.add(new BasicNameValuePair("k1", String.valueOf(type)));
+            getJsonObject_nowait(STATISTICS, nameValuePairs);
+
+        } catch (Exception e) {
+
+        }
+
+    }
     private static JSONObject getJsonObject(String url, List<NameValuePair> nameValuePairs) {
         JSONObject jsonObjOut = null;
         try {
@@ -696,7 +743,17 @@ public class JsonManager {
         return jsonObjOut;
 
     }
+    private static void getJsonObject_nowait(String url, List<NameValuePair> nameValuePairs) {
 
+        try {
+            JsonBase thread = new JsonBase(url, nameValuePairs);
+            thread.start();
+
+        } catch (Exception e) {
+            //    e.printStackTrace();
+        }
+
+    }
     public static String getJsonString(JSONObject jsonObj, String key) {
         try {
             if (jsonObj.has(key)) {
@@ -755,7 +812,7 @@ public class JsonManager {
 		return 	retHashMap;
     }
 
-    static public HashMap<String, Object> getVersionCode() {
+    static public HashMap<String, Object> getServerConfig() {
         HashMap<String, Object> retHashMap = new HashMap<String, Object>();
         try {
 
@@ -763,11 +820,13 @@ public class JsonManager {
 
             nameValuePairs.add(new BasicNameValuePair("k0", "0"));
 
-            JSONObject jsonObj = getJsonObject(GET_VERSION_CODE, nameValuePairs);
+            JSONObject jsonObj = getJsonObject(GET_SERVER_CONFIG, nameValuePairs);
             if (jsonObj != null) {
                 retHashMap.put("k0", getJsonString(jsonObj, "k0"));
                 retHashMap.put("k1", getJsonString(jsonObj, "k1"));
                 retHashMap.put("k2", getJsonString(jsonObj, "k2"));
+                SqliteBase.set_config(JieconDBHelper.PEEK_TIME,getJsonString(jsonObj, "k3"));
+                SqliteBase.set_config(JieconDBHelper.APP_COUNT,getJsonString(jsonObj, "k4"));
             }
         } catch (Exception e) {
             retHashMap.put("k0", "1");

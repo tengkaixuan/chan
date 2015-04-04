@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.dobi.jiecon"
-    android:versionCode="1"
+    android:versionCode="4"
     android:versionName="1.0" >
     <application
         android:name=".App"
+        android:label="@string/app_name"
         android:allowBackup="true"
         android:alwaysRetainTaskState="true"
         android:icon="@drawable/jiejie_icon120">
@@ -22,6 +23,7 @@
             </intent-filter>
         </activity>
         <activity
+            android:label="@string/app_name"
             android:name=".activities.ControlViewActivity"
             android:launchMode="singleTop"
             android:theme="@style/mytitlebar" >
@@ -34,30 +36,33 @@
                 android:resource="@xml/searchable" />
         </activity>
         <activity
+            android:label="@string/app_name"
             android:name=".activities.TabSample"
             android:launchMode="singleInstance"
             android:theme="@style/mytitlebar" >
         </activity>
-        <activity android:name=".activities.SettingsActivity" />
-        <activity android:name=".activities.DayActivity" />
-        <activity android:name=".activities.MonthActivity" />
+        <activity android:name=".activities.SettingsActivity" android:label="@string/app_name"/>
+        <activity android:name=".activities.DayActivity" android:label="@string/app_name"/>
+        <activity android:name=".activities.MonthActivity" android:label="@string/app_name"/>
         <activity
-            android:name=".activities.BuddyDayActivity"
+            android:name=".activities.BuddyDayActivity" android:label="@string/app_name"
             android:theme="@style/mytitlebar" />
         <activity
             android:name=".activities.AddContactsActivity"
+            android:label="@string/app_name"
             android:theme="@style/mytitlebar" />
 
         <service
             android:name=".service.ActivityMonitorService"
+            android:label="@string/app_name"
             android:enabled="true" />
         <service
             android:name=".service.WindowChangeDetectingService"
+            android:label="@string/app_name"
             android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE" >
             <intent-filter>
                 <action android:name="android.accessibilityservice.AccessibilityService" />
             </intent-filter>
-
             <meta-data
                 android:name="android.accessibilityservice"
                 android:resource="@xml/accessibilityservice" />
@@ -65,6 +70,7 @@
 
         <receiver
             android:name=".service.LockReceiver"
+            android:label="@string/app_name"
             android:permission="android.permission.BIND_DEVICE_ADMIN" >
             <meta-data
                 android:name="android.app.device_admin"
@@ -74,31 +80,44 @@
                 <action android:name="android.app.action.DEVICE_ADMIN_ENABLED" />
             </intent-filter>
         </receiver>
-        <receiver android:name=".service.SystemBootCompleted" >
+        <receiver android:name=".service.SystemBootCompleted" android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
             </intent-filter>
         </receiver>
 
         <activity
-            android:name=".activities.SupervisionDetailsActivity"
+            android:name=".activities.SupervisionDetailsActivity" android:label="@string/app_name"
+            android:theme="@style/mytitlebar" >
+        </activity>
+        <activity
+            android:name=".activities.FriendActivity"
+            android:theme="@style/mytitlebar" >
+        </activity>
+        <activity
+            android:name=".activities.KidsActivity"
+            android:theme="@style/mytitlebar" >
+        </activity>
+        <activity
+            android:name=".activities.ParentActivity"
             android:theme="@style/mytitlebar" >
         </activity>
 
         <service
             android:name=".service.PeekService"
+            android:label="@string/app_name"
             android:enabled="true"
             android:exported="true" >
         </service>
 
         <activity
-            android:name=".activities.MockLockActivity" >
+            android:name=".activities.MockLockActivity" android:label="@string/app_name">
         </activity>
         <activity
-            android:name=".activities.PrivatePolicy" />
-        <activity android:name=".activities.SettingHelp" />
+            android:name=".activities.PrivatePolicy" android:label="@string/app_name"/>
+        <activity android:name=".activities.SettingHelp" android:label="@string/app_name"/>
         <activity
-            android:name=".activities.NotificationTapActivity" >
+            android:name=".activities.NotificationTapActivity" android:label="@string/app_name">
         </activity>
         <meta-data android:name="channel" android:value="google" />
     </application>

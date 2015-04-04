@@ -26,6 +26,7 @@ import com.dobi.jiecon.UtilLog;
 import com.dobi.jiecon.adapter.ControlAddContactAdapter;
 import com.dobi.jiecon.adapter.FamilyListAdapter;
 import com.dobi.jiecon.data.FamilyMember;
+import com.dobi.jiecon.data.RelationData;
 import com.dobi.jiecon.datacontroller.RegistrationManager;
 import com.dobi.jiecon.datacontroller.SupervisionManager;
 
@@ -83,6 +84,7 @@ public class ControlViewActivity extends Activity implements TitlebarListener {
             return;
         }
         cxt = this;
+        refreshRelationList();
         refreshFamilyMembers();
     }
 
@@ -103,13 +105,25 @@ public class ControlViewActivity extends Activity implements TitlebarListener {
         refreshFamilyMembers();
         if (SupervisionManager.MSG_NEWARRIVAL.equals(SupervisionManager.getMsgFlag())) {
             UtilLog.logWithCodeInfo("Notification received", "onResume", "ControlViewActivity");
-//            refreshRelationList();
-            UtilLog.logWithCodeInfo("contacts_id is "+ SupervisionManager.getNotificationContactsId(), "onResume", "ControlViewActivity");
-            UtilLog.logWithCodeInfo("contacts_name is "+ SupervisionManager.getNotificationContactsName(), "onResume", "ControlViewActivity");
-            UtilLog.logWithCodeInfo("contacts_phone is "+ SupervisionManager.getNotificationContactsPhone(), "onResume", "ControlViewActivity");
-            Intent intent = new Intent(this, SupervisionDetailsActivity.class);
+            UtilLog.logWithCodeInfo("contacts_id is " + SupervisionManager.getNotificationContactsId(), "onResume", "ControlViewActivity");
+            UtilLog.logWithCodeInfo("contacts_name is " + SupervisionManager.getNotificationContactsName(), "onResume", "ControlViewActivity");
+            UtilLog.logWithCodeInfo("contacts_phone is " + SupervisionManager.getNotificationContactsPhone(), "onResume", "ControlViewActivity");
+
+
+            Intent intent = new Intent(this, FriendActivity.class);
+            int relation = SupervisionManager.get_individual_relation(SupervisionManager.getNotificationContactsId());
+            switch (relation) {
+                case RelationData.RELATION_ROLE_FRIEND:
+                    break;
+                case RelationData.RELATION_ROLE_FATHER:
+                    intent = new Intent(this, ParentActivity.class);
+                    break;
+                case RelationData.RELATION_ROLE_SON:
+                    intent = new Intent(this, KidsActivity.class);
+                    break;
+            }
             intent.putExtra(App.KEY_CURRENT_USR_NAME, SupervisionManager.getNotificationContactsName());
-            intent.putExtra(App.KEY_CURRENT_USR_PHONE,  SupervisionManager.getNotificationContactsPhone());
+            intent.putExtra(App.KEY_CURRENT_USR_PHONE, SupervisionManager.getNotificationContactsPhone());
             intent.putExtra(App.KEY_CURRENT_CONTACTS_ID, SupervisionManager.getNotificationContactsId());
             intent.putExtra(App.KEY_FROM_CXT, App.ID_NOTIFICATION);
             startActivity(intent);
@@ -218,7 +232,7 @@ public class ControlViewActivity extends Activity implements TitlebarListener {
     }*/
 
     private void refreshRelationList() {
-        SupervisionManager.update_relation_list(this, RegistrationManager.getUserId(), mType);
+        SupervisionManager.update_relation_list_async(this, RegistrationManager.getUserId(), mType);
     }
 
     public void showMonitor() {

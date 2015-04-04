@@ -46,8 +46,8 @@ public class PeekService extends Service {
                 }
             }
         };
-
-        int periodPeek = Config.PEEK_TIMER * 1000;
+        JsonManager.getServerConfig();
+        int periodPeek = Config.PEEK_TIMER() * 1000;
         timer.schedule(taskPeek, periodPeek, periodPeek);
     }
 }

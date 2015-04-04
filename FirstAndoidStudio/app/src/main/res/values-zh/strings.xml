@@ -139,9 +139,9 @@
     <string name="EnterPassword">输入密码</string>
     <string name="title_activity_signup">SignupActivity</string>
     <string name="monitor_daily">查看今日数据</string>
-    <string name="day_app_percent">各应用所占时间比</string>
-    <string name="day_bar_discript">前10应用使用统计数据</string>
-    <string name="day_pie_center">前10个App所占\n时间百分比</string>
+    <string name="day_app_percent">前%1$d应用所占时间比</string>
+    <string name="day_bar_discript1">前%1$d应用使用统计数据</string>
+    <string name="day_pie_center1">前%1$d个App所占\n时间百分比</string>
     <string name="day_pie_descript">哆比出品</string>
 
     <string name="setting_change_phone">更换手机号码(当前:  %s )</string>
@@ -152,6 +152,7 @@
     <string name="setting_nickname_hint">提示</string>
     <string name="setting_nickname_modify_success">更改成功！</string>
     <string name="setting_nickname_modify_failed">更改失败！</string>
+    <string name="setting_userid_label">用户 id(当前: %s )</string>
     <string name="setting_nickname_label">更改昵称(当前: %s )</string>
     <string name="setting_start_monitor">辅助功能(当前:已启动)</string>
     <string name="setting_stop_monitor">辅助功能(当前:已停止)</string>

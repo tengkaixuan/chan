@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/list_row_selector"
+    android:padding="8dip"
+    android:id="@+id/family_individual_father">
+
+    <include android:id="@+id/profile_view" layout="@layout/family_individual_profile"/>
+
+    <Button
+        android:id="@+id/father_action_2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:textSize="@dimen/normal_size"
+
+        android:layout_gravity="right"
+        android:text="@string/action_cancel_supervision"
+        android:textAlignment="center"
+        android:layout_below="@+id/profile_view" />
+
+    <Button
+        android:id="@+id/father_action_3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/father_action_2"
+        android:textColor="@color/black"
+        android:textSize="@dimen/normal_size"
+
+        android:layout_gravity="right"
+        android:text="@string/action_lock" />
+
+    <Button
+        android:id="@+id/monitor_daily"
+        android:text="@string/monitor_daily"
+        android:layout_below="@id/father_action_3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+</RelativeLayout>

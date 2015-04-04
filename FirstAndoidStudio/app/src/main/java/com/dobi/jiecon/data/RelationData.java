@@ -12,6 +12,8 @@ public class RelationData {
     public static final int RELATION_ROLE_FATHER = 0;
     public static final int RELATION_ROLE_SON = 1;
 
+    public static final int RELATION_ROLE_FRIEND = -1;
+
     //Father
     public static final int RELATION_FATHER_SUPERVISION_REQUEST = 10;
     public static final int RELATION_FATHER_APPROVE_SUPERVISION_FREE = 21;

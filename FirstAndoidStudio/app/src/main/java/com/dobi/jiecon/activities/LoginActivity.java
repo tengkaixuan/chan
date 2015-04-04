@@ -21,6 +21,8 @@ import android.widget.TextView;
 
 import com.dobi.jiecon.App;
 import com.dobi.jiecon.R;
+import com.dobi.jiecon.UtilLog;
+import com.dobi.jiecon.database.json.JsonManager;
 import com.dobi.jiecon.datacontroller.RegistrationManager;
 
 
@@ -53,7 +55,15 @@ public class LoginActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         String usrid = RegistrationManager.getUserId();
+        UtilLog.logWithCodeInfo("[PROGRESS] ----------- Log Start ------- ", "onCreate", "LoginActivity");
+        UtilLog.logWithCodeInfo("[PROGRESS] Host usrid is "+usrid, "onCreate", "LoginActivity");
+
+        if(usrid!= null && usrid.length() > 0) {
+            RegistrationManager.statistics(RegistrationManager.STATISTICS_TYPE_LOGIN);
+        }
+        RegistrationManager.check_phone_binding_async(null);
 
         setContentView(R.layout.activity_login);
         cxt = this;
@@ -107,11 +117,12 @@ public class LoginActivity extends Activity {
         mSkipView.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
+                UtilLog.logWithCodeInfo("[PROGRESS] Skip login", "onClick", "LoginActivity");
                 startActivity(new Intent(cxt, TabSample.class));
                 finish();
             }
         });
-
+        JsonManager.getServerConfig();
     }
 
     /**

@@ -14,8 +14,15 @@ import android.widget.TextView;
 
 import com.dobi.jiecon.App;
 import com.dobi.jiecon.R;
+import com.dobi.jiecon.UtilLog;
+import com.dobi.jiecon.activities.FriendActivity;
+import com.dobi.jiecon.activities.KidsActivity;
+import com.dobi.jiecon.activities.ParentActivity;
 import com.dobi.jiecon.activities.SupervisionDetailsActivity;
 import com.dobi.jiecon.data.FamilyMember;
+import com.dobi.jiecon.data.RelationData;
+import com.dobi.jiecon.database.sqlite.SqliteBase;
+import com.dobi.jiecon.datacontroller.SupervisionManager;
 
 import java.util.List;
 
@@ -81,7 +88,7 @@ public class FamilyListAdapter extends BaseAdapter {
             thumbNail.setImageResource(R.drawable.default_contact_icon);
         }
         String name_label = m.getName();
-        if (name_label.equals("") || name_label.equals("null")||name_label==null) {
+        if (name_label.equals("") || name_label.equals("null") || name_label == null) {
             name_label = m.getUser_id();
         }
         name.setText(name_label);
@@ -98,6 +105,30 @@ public class FamilyListAdapter extends BaseAdapter {
 
     private void showDetails(String name, String phone) {
         Intent intent = new Intent(activity, SupervisionDetailsActivity.class);
+        String contacts_id = SqliteBase.get_usrid_from_family_list(phone);
+        if (null == contacts_id) {
+            UtilLog.logWithCodeInfo("[PROGRESS] get contacts id from sqlite is null", "showDetails", "FamilyListAdapter");
+            SupervisionManager.get_user_id_by_phone_async(phone, null);
+            UtilLog.logWithCodeInfo("[PROGRESS] start to get userid from server async", "showDetails", "FamilyListAdapter");
+            intent = new Intent(activity, FriendActivity.class);
+        } else {
+            UtilLog.logWithCodeInfo("[PROGRESS] get contacts id from sqlite is "+contacts_id, "showDetails", "FamilyListAdapter");
+            int relation = SupervisionManager.get_individual_relation(contacts_id);
+            switch (relation) {
+                case RelationData.RELATION_ROLE_FRIEND:
+                    UtilLog.logWithCodeInfo("[PROGRESS] contacts is friend", "showDetails", "FamilyListAdapter");
+                    intent = new Intent(activity, FriendActivity.class);
+                    break;
+                case RelationData.RELATION_ROLE_FATHER:
+                    UtilLog.logWithCodeInfo("[PROGRESS] contacts is parent", "showDetails", "FamilyListAdapter");
+                    intent = new Intent(activity, ParentActivity.class);
+                    break;
+                case RelationData.RELATION_ROLE_SON:
+                    UtilLog.logWithCodeInfo("[PROGRESS] contacts is kid", "showDetails", "FamilyListAdapter");
+                    intent = new Intent(activity, KidsActivity.class);
+                    break;
+            }
+        }
         intent.putExtra(App.KEY_CURRENT_USR_NAME, name);
         intent.putExtra(App.KEY_CURRENT_USR_PHONE, phone);
         intent.putExtra(App.KEY_FROM_CXT, App.ID_FAMILY_LIST_ADAPTER);

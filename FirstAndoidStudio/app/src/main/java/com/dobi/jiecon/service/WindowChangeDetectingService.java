@@ -112,7 +112,6 @@ public class WindowChangeDetectingService extends AccessibilityService {
 
         startMonitor();
 
-        SqliteBase.insert_update_config(JieconDBHelper.ACCESSIBILITY_SERVICE, "1");
     }
     public static void startMonitor() {
         java.util.Timer timer = new java.util.Timer(true);
@@ -225,6 +224,5 @@ public class WindowChangeDetectingService extends AccessibilityService {
     @Override
     public void onDestroy() {
         SupervisionManager.remove_lock_screen_policy();
-        SqliteBase.insert_update_config(JieconDBHelper.ACCESSIBILITY_SERVICE, "0");
     }
 }

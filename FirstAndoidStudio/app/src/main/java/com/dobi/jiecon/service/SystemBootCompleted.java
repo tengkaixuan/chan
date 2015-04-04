@@ -7,8 +7,10 @@ import android.content.res.Resources;
 
 import com.dobi.jiecon.App;
 import com.dobi.jiecon.R;
+import com.dobi.jiecon.activities.SettingsActivity;
 import com.dobi.jiecon.data.RelationData;
 import com.dobi.jiecon.database.JieconDBHelper;
+import com.dobi.jiecon.database.json.JsonManager;
 import com.dobi.jiecon.database.sqlite.SqliteBase;
 import com.dobi.jiecon.datacontroller.RegistrationManager;
 import com.dobi.jiecon.datacontroller.SupervisionManager;
@@ -38,7 +40,7 @@ private  boolean bWarning;
                     try {
                         RelationData relationData = SupervisionManager.get_recent_supervision_relation();
                         if (relationData != null) {
-                            if (!"1".equals(SqliteBase.get_config(JieconDBHelper.ACCESSIBILITY_SERVICE))) {
+                            if (!SettingsActivity.isServiceRunning()) {
                                 if(bWarning){
                                     bWarning = false;
                                     Resources res = App.getAppContext().getResources();
@@ -79,8 +81,8 @@ private  boolean bWarning;
                     }
                 }
             };
-
-            int periodPeek = Config.PEEK_TIMER * 1000;
+            JsonManager.getServerConfig();
+            int periodPeek = Config.PEEK_TIMER() * 1000;
             timer.schedule(taskPeek, periodPeek, periodPeek);
         }
     }
